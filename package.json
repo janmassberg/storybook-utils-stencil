@@ -1,0 +1,44 @@
+{
+  "name": "storybook-utils-stencil",
+  "version": "0.0.1",
+  "description": "Utilities and Components that extend the built-in storybook features for stencil projects",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsc --project tsconfig.json --noEmit false --module esnext --outDir dist",
+    "build-lib": "tsc --project tsconfig.json --noEmit false --module commonjs --outDir lib",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006",
+    "eslint": "eslint src/**/*{.ts,.tsx}",
+    "eslint-fix": "eslint src/**/*{.ts,.tsx} --fix",
+    "prettier": "prettier --check \"./{src/**/*{.scss,.ts,.tsx},stories/**/*{.mdx,.js,.ts},*.js,*.ts,.react/package.json}\"",
+    "prettier-fix": "prettier --write \"./{src/**/*{.scss,.ts,.tsx},stories/**/*{.mdx,.js,.ts},*.js,*.ts,.react/package.json}\"",
+    "lint": "npm run prettier && npm run eslint",
+    "lint-fix": "npm run prettier-fix && npm run eslint-fix",
+    "tsc:check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.3.10",
+    "@types/prettier": "^2.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest": "^25.2.1",
+    "eslint-plugin-react": "^7.26.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.4"
+  }
+}
