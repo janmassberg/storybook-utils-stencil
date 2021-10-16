@@ -8,3 +8,11 @@ export const toKebabCase = (str: string): string => {
 export const toCamelCase = (str: string): string => {
     return str.replace(/-./g, (x) => x.toUpperCase()[1]);
 };
+
+export const ucFirst = (str: string): string => {
+    return str.slice(0, 1).toUpperCase() + str.slice(1);
+};
+
+export const toQuotedKeyName = (str: string): string => {
+    return /^[a-z]+$/i.test(str) ? str : `"${str}"`;
+};
