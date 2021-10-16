@@ -17,10 +17,13 @@ export const objectToString = (value: any): string => {
             if (Array.isArray(value)) {
                 return `[${value.map(objectToString).join(", ")}]`;
             }
-            const props = Object.entries(value).map(
-                ([key, value]) => `${toQuotedKeyName(key)}: ${objectToString(value)}`
-            );
-            return `{${props.join(", ")}}`;
+            if (value !== null) {
+                const props = Object.entries(value).map(
+                    ([key, value]) => `${toQuotedKeyName(key)}: ${objectToString(value)}`
+                );
+                return `{${props.join(", ")}}`;
+            }
+            return "";
         case "undefined":
         default:
             return "";

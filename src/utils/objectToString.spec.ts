@@ -20,6 +20,11 @@ describe("objectToString", () => {
         })).toMatchSnapshot();
     });
 
+    it("should return empty string for undefined types", () => {
+        expect(objectToString(undefined)).toEqual("");
+        expect(objectToString(null)).toEqual("");
+    });
+
     it("should convert objects to strings", () => {
         expect(objectToString({
             testString: "test string",
