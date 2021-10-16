@@ -17,7 +17,9 @@
     "prettier-fix": "prettier --write \"./{src/**/*{.scss,.ts,.tsx},stories/**/*{.mdx,.js,.ts},*.js,*.ts,.react/package.json}\"",
     "lint": "npm run prettier && npm run eslint",
     "lint-fix": "npm run prettier-fix && npm run eslint-fix",
-    "tsc:check": "tsc --noEmit"
+    "tslint": "tsc --noEmit",
+    "test": "jest",
+    "test-report": "jest --json --outputFile ./jest.report.json --coverage"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -27,6 +29,7 @@
     "@storybook/addon-links": "^6.3.10",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.10",
+    "@types/jest": "^27.0.2",
     "@types/prettier": "^2.4.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
@@ -36,10 +39,12 @@
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^25.2.1",
     "eslint-plugin-react": "^7.26.1",
+    "jest": "^27.2.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "ts-jest": "^27.0.6",
     "typescript": "^4.4.4"
   }
 }
