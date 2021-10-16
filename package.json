@@ -18,7 +18,8 @@
     "lint": "npm run prettier && npm run eslint",
     "lint-fix": "npm run prettier-fix && npm run eslint-fix",
     "tslint": "tsc --noEmit",
-    "test": "jest src/**/*"
+    "test": "jest",
+    "test-report": "jest --json --outputFile ./jest.report.json --coverage"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

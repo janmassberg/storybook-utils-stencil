@@ -18,3 +18,7 @@ node_modules/
 
 # JetBrains
 .idea
+
+# Jest test report
+coverage/
+jest.report.json
