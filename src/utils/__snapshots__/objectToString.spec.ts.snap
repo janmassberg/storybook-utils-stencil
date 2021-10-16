@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`objectToString should convert functions to strings 1`] = `
+"function (event) {
+            console.log(event);
+        }"
+`;
+
+exports[`objectToString should convert objects to strings 1`] = `"{testString: \\"test string\\", testNumber: 1234, testTrue: true, testFalse: false}"`;
