@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatJsx returns correctly formatted JSX code 1`] = `
+"<MyComponent
+  dataId=\\"test-id\\"
+  dataName=\\"test-name\\"
+  onClick={(event) => handleClick(event)}
+>
+  <span>test content</span>
+</MyComponent>;
+"
+`;
