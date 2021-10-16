@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formatHtml converts string to camel case correctly 1`] = `
-"<div class=\\"my-container\\" data-id=\\"test-id\\" data-name=\\"test-name\\">
+exports[`formatHtml returns correctly formatted HTML code 1`] = `
+"<my-component class=\\"my-container\\" data-id=\\"test-id\\" data-name=\\"test-name\\">
   <span>test content</span>
-</div>
+</my-component>
 "
 `;

@@ -1,13 +1,13 @@
 import { formatHtml } from "./formatHtml";
 
 describe("formatHtml", () => {
-    it("converts string to camel case correctly", () => {
+    it("returns correctly formatted HTML code", () => {
         expect(
             formatHtml(
-                `<div
+                `<my-component
 class="my-container"
 data-id="test-id"
-data-name="test-name"><span>test content</span></div>`
+data-name="test-name"><span>test content</span></my-component>`
             )
         ).toMatchSnapshot();
     });
