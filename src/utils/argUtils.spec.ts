@@ -1,4 +1,8 @@
-import { filterHtmlAttributes, filterJsxProperties } from "./argUtils";
+import {
+    filterHtmlAttributes,
+    filterJsxProperties,
+    filterEventHandlers,
+} from "./argUtils";
 
 const testArgs = {
     testString: "test-string",
@@ -9,9 +13,7 @@ const testArgs = {
     testObject: {
         foo: "bar",
     },
-    testFunction: () => {
-        // do nothing
-    },
+    testFunction: () => {},
     testNull: null,
     testUndefined: undefined,
 };
@@ -25,5 +27,11 @@ describe("filterHtmlAttributes", () => {
 describe("filterJsxProperties", () => {
     it("should return an array of key/value pairs with valid JSX properties", () => {
         expect(filterJsxProperties(testArgs)).toMatchSnapshot();
+    });
+});
+
+describe("filterEventHandlers", () => {
+    it("should return an array of key/value pairs with valid event handlers", () => {
+        expect(filterEventHandlers(testArgs)).toMatchSnapshot();
     });
 });

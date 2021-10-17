@@ -21,22 +21,26 @@ const isEventHandlerKey = (key: string): boolean => {
 };
 
 /** @private */
-const isEventArg = ([key, value]: ArgEntry): boolean => {
-    return isFunctionValue(value) && isEventHandlerKey(key);
-};
-
-/** @private */
 const isHiddenArg = ([key]: ArgEntry): boolean => {
     return key.slice(0, 1) === "_";
 };
 
 /**
- * Checks if an argument can be treated as HTML attribute
+ * Checks if an argument is an event handler
+ * @param args {ArgsType}
+ */
+export const isEventArg = ([key, value]: ArgEntry): boolean => {
+    return isEventHandlerKey(key) && isFunctionValue(value);
+};
+
+/**
+ * Checks if an argument is a valid HTML attribute
  * @param args {ArgsType}
  */
 export const isHtmlArg = ([key, value]: ArgEntry): boolean => {
     return (
         value !== undefined &&
+        value !== null &&
         !isHiddenArg([key, value]) &&
         !isEventArg([key, value]) &&
         !isFunctionValue(value) &&
@@ -45,20 +49,20 @@ export const isHtmlArg = ([key, value]: ArgEntry): boolean => {
 };
 
 /**
- * Checks if an argument should be considered as JSX property
+ * Checks if an argument is a valid JSX property
  * @param args {ArgsType}
  */
 export const isJsxArg = ([key, value]: ArgEntry): boolean => {
     return (
         value !== undefined &&
-        !isHtmlArg([key, value]) &&
+        value !== null &&
         !isHiddenArg([key, value]) &&
         !isEventArg([key, value])
     );
 };
 
 /**
- * Filters args with valid HTML attributes
+ * Filters args with valid HTML attributes only
  * @param args {ArgsType}
  */
 export const filterHtmlAttributes: ArgsFilter = (args: ArgsType): ArgsType => {
@@ -66,9 +70,17 @@ export const filterHtmlAttributes: ArgsFilter = (args: ArgsType): ArgsType => {
 };
 
 /**
- * Filters args with valid JSX properties
+ * Filters args with valid JSX properties only
  * @param args {ArgsType}
  */
 export const filterJsxProperties: ArgsFilter = (args: ArgsType): ArgsType => {
     return Object.entries(args).filter(isJsxArg);
+};
+
+/**
+ * Filters args with valid event handlers only
+ * @param args {ArgsType}
+ */
+export const filterEventHandlers: ArgsFilter = (args: ArgsType): ArgsType => {
+    return Object.entries(args).filter(isEventArg);
 };
