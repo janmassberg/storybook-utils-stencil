@@ -1,0 +1,53 @@
+import { Meta, Source } from "@storybook/addon-docs";
+import {
+    filterHtmlAttributes,
+    filterJsxProperties,
+} from "../../src/utils/argUtils";
+
+export const testArgs = {
+    testString: "test-string",
+    testNumber: 12345,
+    testTrue: true,
+    testFalse: false,
+    testArray: [1, 2, 3],
+    testObject: {
+        foo: "bar",
+    },
+    testFunction: () => {},
+    testNull: null,
+    testUndefined: undefined,
+};
+
+<Meta title="Utilities/argUtils" />
+
+# Utilities
+
+## argUtils
+
+```typescript
+import {
+    filterHtmlAtributes,
+    filterJsxProperties,
+} from "@jmassberg/storybook-utils-stencil";
+
+const template = (args) => {
+    const htmlArgs = filterHtmlAtributes(args);
+    const jsxProperties = filterJsxProperties(args);
+};
+```
+
+### filterHtmlAtributes
+
+<Source
+    code={filterHtmlAttributes(testArgs)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n")}
+/>
+
+### filterJsxProperties
+
+<Source
+    code={filterJsxProperties(testArgs)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n")}
+/>
