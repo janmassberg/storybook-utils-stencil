@@ -5,7 +5,7 @@ const testArgs = {
     testNumber: 12345,
     testTrue: true,
     testFalse: false,
-    testArrayt: [1, 2, 3],
+    testArray: [1, 2, 3],
     testObject: {
         foo: "bar",
     },
