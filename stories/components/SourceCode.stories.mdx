@@ -1,0 +1,78 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import {
+    ThemeProvider,
+    themes,
+    convert as convertTheme,
+} from "@storybook/theming";
+import { SourceCode } from "../../src/components/SourceCode";
+
+export const template = (args = {}) => {
+    const { theme = "dark", codeBlocks } = args;
+    return <SourceCode theme={theme} codeBlocks={codeBlocks} />;
+};
+
+export const theme = convertTheme(themes.light);
+
+export const storyWrapper = (Story) => {
+    return <ThemeProvider theme={theme}>{Story()}</ThemeProvider>;
+};
+
+<Meta
+    title="Blocks/SourceCode"
+    component={SourceCode}
+    argTypes={{
+        theme: {
+            control: {
+                type: "radio",
+                options: ["dark", "light"],
+            },
+        },
+    }}
+/>
+
+# SourceCode
+
+The `SourceCode` component can help in if you want to display source code for different targets.
+For each entry in the `codeBlock` prop, a tab is displayed.
+By clicking on a tab, the related code blocks are shown.
+
+Set the `language` attribute on a code block to display an appropriate badge.
+
+<Story
+    name="Dark Theme"
+    args={{
+        theme: "dark",
+        codeBlocks: {
+            html: [
+                {
+                    language: "html",
+                    code: `
+<my-component
+    name="example"
+    label="Label"
+    placeholder="Placeholder"
+    hint-text="Hint Text"
+    error-msg="Error Message" required
+></my-component>`,
+                },
+            ],
+            javascript: [
+                {
+                    language: "javascript",
+                    code: `
+<script>
+  const element = document.querySelector("my-component");
+  element.onChange = function() {};
+</script>`,
+                },
+            ],
+        },
+    }}
+    decorators={[storyWrapper]}
+>
+    {template.bind({})}
+</Story>
+
+## Properties
+
+<ArgsTable />
