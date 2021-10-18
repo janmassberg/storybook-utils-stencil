@@ -1,0 +1,22 @@
+.SourceCode {
+    margin: 0 0 1.0rem;
+}
+
+.SourceCode .docblock-source {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.SourceCode__header,
+.SourceCode__block {
+    display: block;
+    position: relative;
+}
+
+.SourceCode__block-badge {
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    z-index: 1;
+}
