@@ -1,0 +1,108 @@
+import { Meta, Source, Story, ArgsTable } from "@storybook/addon-docs";
+import {
+    ThemeProvider,
+    themes,
+    convert as convertTheme,
+} from "@storybook/theming";
+import { generateSourceCodeHtml, SourceCode } from "../../src";
+import { testArgs } from "../../src/utils/test-utils/testArgs";
+
+export const template = (args = {}) => {
+    const { theme = "dark", codeBlocks } = args;
+    return <SourceCode theme={theme} codeBlocks={codeBlocks} />;
+};
+
+export const theme = convertTheme(themes.light);
+
+export const storyWrapper = (Story) => {
+    return <ThemeProvider theme={theme}>{Story()}</ThemeProvider>;
+};
+
+<Meta
+    title="Components/SourceCode"
+    component={SourceCode}
+    argTypes={{
+        theme: {
+            control: {
+                type: "radio",
+                options: ["dark", "light"],
+            },
+        },
+    }}
+/>
+
+# SourceCode
+
+The `SourceCode` component can be used to group code snippets and provide a tab navigation to only show the code that is relevant for the user.
+
+<Story
+    name="SourceCode"
+    args={{
+        theme: "dark",
+        codeBlocks: {
+            html: [
+                {
+                    language: "html",
+                    code: generateSourceCodeHtml("my-component", testArgs),
+                },
+            ],
+            javascript: [
+                {
+                    language: "javascript",
+                    code: `
+<script>
+  const element = document.querySelector("my-component");
+  element.onChange = function() {
+    // handle change event
+  };
+</script>`,
+                },
+            ],
+        },
+    }}
+    decorators={[storyWrapper]}
+>
+    {template.bind({})}
+</Story>
+
+## Usage
+
+Data and structure are provided in the `codeBlocks` property.
+
+For each `codeBlocks` entry a tab is added to the tab navigation.
+The tabs are labelled with the key of the related entry.
+
+Set the `language` attribute on the code blocks to the language the code is written in.
+The language is used for code formatting and to display an info badge.
+
+<Source
+    code={`
+<SourceCode
+    theme="dark"
+    codeBlocks={{
+        html: [
+            {
+                language: "html",
+                code: "<my-component></my-component>"
+            }
+        ],
+        javascript: [
+            {
+                language: "javascript",
+                code: "const element = document.querySelector('my-component');"
+            }
+        ]
+    }}
+/>
+`}
+/>
+
+### Theme
+
+Set `theme` to either `dark` or `light` to define how the code should be displayed.
+
+<br />
+
+## Properties
+
+<ArgsTable />

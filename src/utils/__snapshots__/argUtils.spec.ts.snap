@@ -1,7 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`filterEventHandlers should return an array of key/value pairs with valid event handlers 1`] = `
+Array [
+  Array [
+    "onTestEvent",
+    [Function],
+  ],
+]
+`;
+
 exports[`filterHtmlAttributes should return an array of key/value pairs with valid HTML attributes 1`] = `
 Array [
+  Array [
+    "testFalse",
+    false,
+  ],
+  Array [
+    "testTrue",
+    true,
+  ],
+  Array [
+    "testString",
+    "test-string",
+  ],
+  Array [
+    "testNumber",
+    12345,
+  ],
+]
+`;
+
+exports[`filterJsxProperties should return an array of key/value pairs with valid JSX properties 1`] = `
+Array [
+  Array [
+    "testFalse",
+    false,
+  ],
+  Array [
+    "testTrue",
+    true,
+  ],
   Array [
     "testString",
     "test-string",
@@ -11,24 +49,7 @@ Array [
     12345,
   ],
   Array [
-    "testTrue",
-    true,
-  ],
-  Array [
-    "testFalse",
-    false,
-  ],
-  Array [
-    "testNull",
-    null,
-  ],
-]
-`;
-
-exports[`filterJsxProperties should return an array of key/value pairs with valid JSX properties 1`] = `
-Array [
-  Array [
-    "testArrayt",
+    "testArray",
     Array [
       1,
       2,

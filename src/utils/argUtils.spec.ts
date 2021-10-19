@@ -1,20 +1,9 @@
-import { filterHtmlAttributes, filterJsxProperties } from "./argUtils";
-
-const testArgs = {
-    testString: "test-string",
-    testNumber: 12345,
-    testTrue: true,
-    testFalse: false,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
-    },
-    testFunction: () => {
-        // do nothing
-    },
-    testNull: null,
-    testUndefined: undefined,
-};
+import {
+    filterHtmlAttributes,
+    filterJsxProperties,
+    filterEventHandlers,
+} from "./argUtils";
+import { testArgs } from "./test-utils/testArgs";
 
 describe("filterHtmlAttributes", () => {
     it("should return an array of key/value pairs with valid HTML attributes", () => {
@@ -25,5 +14,11 @@ describe("filterHtmlAttributes", () => {
 describe("filterJsxProperties", () => {
     it("should return an array of key/value pairs with valid JSX properties", () => {
         expect(filterJsxProperties(testArgs)).toMatchSnapshot();
+    });
+});
+
+describe("filterEventHandlers", () => {
+    it("should return an array of key/value pairs with valid event handlers", () => {
+        expect(filterEventHandlers(testArgs)).toMatchSnapshot();
     });
 });

@@ -1,22 +1,11 @@
 import { Meta, Source } from "@storybook/addon-docs";
 import {
+    filterEventHandlers,
     filterHtmlAttributes,
     filterJsxProperties,
-} from "../../src/utils/argUtils";
-
-export const testArgs = {
-    testString: "test-string",
-    testNumber: 12345,
-    testTrue: true,
-    testFalse: false,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
-    },
-    testFunction: () => {},
-    testNull: null,
-    testUndefined: undefined,
-};
+    objectToString,
+} from "../../src";
+import { testArgs } from "../../src/utils/test-utils/testArgs";
 
 <Meta title="Utilities/argUtils" />
 
@@ -30,17 +19,30 @@ import {
     filterJsxProperties,
 } from "@jmassberg/storybook-utils-stencil";
 
-const template = (args) => {
-    const htmlArgs = filterHtmlAtributes(args);
-    const jsxProperties = filterJsxProperties(args);
+export const args = {
+    testNull: null,
+    testUndefined: undefined,
+    testFalse: false,
+    testTrue: true,
+    testString: "test-string",
+    testNumber: 12345,
+    testArray: [1, 2, 3],
+    testObject: {
+        foo: "bar",
+    },
+    testFunction: () => {},
+    onTestEvent: () => {},
 };
+
+const htmlArgs = filterHtmlAtributes(args);
+const jsxProperties = filterJsxProperties(args);
 ```
 
 ### filterHtmlAtributes
 
 <Source
     code={filterHtmlAttributes(testArgs)
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `${key}: ${objectToString(value)}`)
         .join("\n")}
 />
 
@@ -48,6 +50,14 @@ const template = (args) => {
 
 <Source
     code={filterJsxProperties(testArgs)
-        .map(([key, value]) => `${key}: ${value}`)
+        .map(([key, value]) => `${key}: ${objectToString(value)}`)
+        .join("\n")}
+/>
+
+### filterEventHandlers
+
+<Source
+    code={filterEventHandlers(testArgs)
+        .map(([key, value]) => `${key}: ${objectToString(value)}`)
         .join("\n")}
 />

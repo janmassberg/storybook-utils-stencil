@@ -6,7 +6,8 @@
     "dist/"
   ],
   "scripts": {
-    "clean": "rm -rf dist",
+    "start": "npm run storybook",
+    "clean": "rm -rf dist es lib coverage",
     "build": "tsc --project tsconfig.json --noEmit false --module esnext --outDir dist",
     "build-lib": "tsc --project tsconfig.json --noEmit false --module commonjs --outDir lib",
     "build-storybook": "build-storybook",
@@ -19,6 +20,7 @@
     "lint-fix": "npm run prettier-fix && npm run eslint-fix",
     "tslint": "tsc --noEmit",
     "test": "jest",
+    "test-update": "jest -u",
     "test-report": "jest --json --outputFile ./jest.report.json --coverage"
   },
   "devDependencies": {
