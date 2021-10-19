@@ -33,22 +33,6 @@ Array [
 exports[`filterJsxProperties should return an array of key/value pairs with valid JSX properties 1`] = `
 Array [
   Array [
-    "testFalse",
-    false,
-  ],
-  Array [
-    "testTrue",
-    true,
-  ],
-  Array [
-    "testString",
-    "test-string",
-  ],
-  Array [
-    "testNumber",
-    12345,
-  ],
-  Array [
     "testArray",
     Array [
       1,
