@@ -3,20 +3,7 @@ import {
     filterJsxProperties,
     filterEventHandlers,
 } from "./argUtils";
-
-const testArgs = {
-    testString: "test-string",
-    testNumber: 12345,
-    testTrue: true,
-    testFalse: false,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
-    },
-    testFunction: () => {},
-    testNull: null,
-    testUndefined: undefined,
-};
+import { testArgs } from "./test-utils/testArgs";
 
 describe("filterHtmlAttributes", () => {
     it("should return an array of key/value pairs with valid HTML attributes", () => {

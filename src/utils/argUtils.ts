@@ -1,7 +1,7 @@
-type ArgEntry = [string, any];
-type ArgsType = ArgEntry[];
+export type ArgEntry = [string, any];
+export type ArgsType = ArgEntry[];
 
-interface ArgsFilter {
+export interface ArgsFilter {
     (args: any): ArgsType;
 }
 

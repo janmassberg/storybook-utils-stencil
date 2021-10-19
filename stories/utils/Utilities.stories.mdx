@@ -3,23 +3,9 @@ import {
     filterEventHandlers,
     filterHtmlAttributes,
     filterJsxProperties,
-} from "../../src/utils/argUtils";
-import { objectToString } from "../../src/utils/objectToString";
-
-export const testArgs = {
-    testNull: null,
-    testUndefined: undefined,
-    testFalse: false,
-    testTrue: true,
-    testString: "test-string",
-    testNumber: 12345,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
-    },
-    testFunction: () => {},
-    onTestEvent: () => {},
-};
+    objectToString,
+} from "../../src";
+import { testArgs } from "../../src/utils/test-utils/testArgs";
 
 <Meta title="Utilities/argUtils" />
 
