@@ -3,7 +3,7 @@ import {
     filterJsxProperties,
     filterEventHandlers,
 } from "./argUtils";
-import { testArgs } from "./test-utils/testArgs";
+import { testArgs } from "../test-utils/testArgs";
 
 describe("filterHtmlAttributes", () => {
     it("should return an array of key/value pairs with valid HTML attributes", () => {
