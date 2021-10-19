@@ -1,11 +1,45 @@
 import React, { FC, useState } from "react";
 import { TabButton, Source, Badge } from "@storybook/components";
+import { styled } from "@storybook/theming";
 import { SourceCodeBlockGroup, SourceCodeBlocks } from "./types";
 
 interface SourceCodeProps {
     codeBlocks: SourceCodeBlocks;
     theme?: "dark" | "light";
 }
+
+const Wrapper = styled.div`
+    box-sizing: border-box;
+    margin: 0 0 2rem;
+
+    .docblock-source {
+        margin: 0;
+    }
+`;
+
+const Box = styled.div`
+    display: block;
+    position: relative;
+`;
+
+const Panel = styled(Box)`
+    margin: 0;
+`;
+
+const TabsContainer = styled(Box)`
+    margin: 0;
+`;
+
+const TitleContainer = styled(Box)`
+    margin: 0 0 1em;
+`;
+
+const BadgeContainer = styled(Box)`
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    z-index: 1;
+`;
 
 export const SourceCode: FC<SourceCodeProps> = ({
     codeBlocks,
@@ -21,8 +55,8 @@ export const SourceCode: FC<SourceCodeProps> = ({
     const [activeTab, setActiveTab] = useState<string>(tabs[0]?.name || "");
     const activeGroup = codeBlocks[activeTab];
     return (
-        <div className="SourceCode">
-            <div className="SourceCode__header">
+        <Wrapper>
+            <TabsContainer>
                 {tabs.map(({ name, title }) => (
                     <TabButton
                         key={name}
@@ -32,38 +66,31 @@ export const SourceCode: FC<SourceCodeProps> = ({
                         {title}
                     </TabButton>
                 ))}
-            </div>
+            </TabsContainer>
             {Array.isArray(activeGroup) &&
                 activeGroup.map(({ code, language, title }) => (
-                    <div
-                        key={`${activeTab}-${language}-${code}`}
-                        className="SourceCode__panel"
-                    >
-                        {title && (
-                            <div className="SourceCode__block-title">
-                                {title}
-                            </div>
-                        )}
-                        <div className="SourceCode__block">
-                            <div className="SourceCode__block-badge">
+                    <Panel key={`${activeTab}-${language}-${code}`}>
+                        {title && <TitleContainer>{title}</TitleContainer>}
+                        <Box>
+                            <BadgeContainer>
                                 <Badge status="neutral">{language}</Badge>
-                            </div>
+                            </BadgeContainer>
                             <Source
                                 dark={theme === "dark"}
                                 code={code}
                                 language={language}
                             />
-                        </div>
-                    </div>
+                        </Box>
+                    </Panel>
                 ))}
             {!Array.isArray(activeGroup) && (
-                <div className="SourceCode__panel">
-                    <div className="SourceCode__block-title">
+                <Panel>
+                    <TitleContainer>
                         <p>No source available</p>
-                    </div>
-                </div>
+                    </TitleContainer>
+                </Panel>
             )}
-        </div>
+        </Wrapper>
     );
 };
 
