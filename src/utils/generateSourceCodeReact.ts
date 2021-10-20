@@ -24,7 +24,7 @@ const transformReactChildren = (str: string): string => {
     if (!str || str === "") {
         return "";
     }
-    const matches = str.match(/<([a-z]-[a-z-]+)/gi);
+    const matches = str.match(/<([a-z]+-[a-z-]+)/gi);
     if (!matches || !matches.length) {
         return str;
     }
@@ -44,7 +44,7 @@ const transformReactChildren = (str: string): string => {
         const reactTagName = transformReactComponentName(tagName);
         str = str.replace(new RegExp(tagName, "g"), reactTagName);
         str = str.replace(
-            new RegExp(`([a-z-]+)="([a-z0-9-]+)"`, "g"),
+            new RegExp(`([a-z-]+)="([^"]+)"`, "gi"),
             (match, attrib, value) => {
                 return `${transformReactPropName(attrib)}=${objectToStringJsx(
                     value
