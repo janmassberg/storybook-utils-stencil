@@ -8,6 +8,7 @@ node_modules/
 
 # Optional npm cache directory
 .npm
+/_tmp
 
 # Optional eslint cache
 .eslintcache
