@@ -1,6 +1,6 @@
 {
   "name": "@jmassberg/storybook-utils-stencil",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Utilities and Components that extend the storybook features for stencil projects",
   "files": [
     "dist/",
