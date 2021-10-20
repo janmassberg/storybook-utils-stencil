@@ -1,3 +1,11 @@
+const testArgFunction = function (): void {
+    // do nothing
+};
+
+const testArgEventHandler = function (event: Event): void {
+    console.log(event.type);
+};
+
 export const testArgs = {
     testNull: null,
     testUndefined: undefined,
@@ -9,7 +17,7 @@ export const testArgs = {
     testObject: {
         foo: "bar",
     },
-    testFunction: () => {},
-    onTestEvent: () => {},
+    testFunction: testArgFunction,
+    onTestEvent: testArgEventHandler,
     _children: "Test children",
 };
