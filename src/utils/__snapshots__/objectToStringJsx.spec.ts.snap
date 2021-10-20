@@ -1,9 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`objectToStringJsx should convert functions correctly 1`] = `
-"{function (event) {
-            console.log(event);
-        }}"
-`;
+exports[`objectToStringJsx should convert functions correctly 1`] = `"{function() {}}"`;
 
 exports[`objectToStringJsx should correctly convert objects to jsx 1`] = `"{{testString: \\"test string\\", testNumber: 1234, testTrue: true, testFalse: false}}"`;
