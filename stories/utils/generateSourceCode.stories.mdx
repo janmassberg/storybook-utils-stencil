@@ -1,0 +1,56 @@
+import { Meta, Source } from "@storybook/addon-docs";
+import {
+    generateSourceCodeHtml,
+    generateSourceCodeVanillaJs,
+    generateSourceCodeReact,
+} from "../../src";
+import { testArgs } from "../../src/test-utils/testArgs";
+
+export const usageExample = `
+import {
+    generateSourceCodeHtml,
+    generateSourceCodeVanillaJs,
+    generateSourceCodeReact,
+} from "@jmassberg/storybook-utils-stencil";\n
+const args = {
+    testFalse: false,
+    testTrue: true,
+    testString: "test-string",
+    testNumber: 12345,
+    testArray: [1, 2, 3],
+    testObject: {
+        foo: "bar",
+    },
+    onTestEvent: testArgEventHandler,
+    _children: "Test children",
+};\n
+const htmlCode = generateSourceCodeHtml("my-component", args);
+const jsCode = generateSourceCodeVanillaJs("my-component", args);
+const reactCode = generateSourceCodeReact("my-component", args);
+`;
+
+<Meta title="Utilities/generateSourceCode" />
+
+# generateSourceCode
+
+## Usage
+
+<Source code={usageExample} />
+
+### HTML
+
+Use `generateSourceCodeHtml` to generate the HTML source.
+
+<Source code={generateSourceCodeHtml("my-component", testArgs)} />
+
+### Vanilla JS
+
+Use `generateSourceCodeVanillaJs` to generate the JS script source.
+
+<Source code={generateSourceCodeVanillaJs("my-component", testArgs)} />
+
+### React
+
+Use `generateSourceCodeReact` to generate React JSX source.
+
+<Source code={generateSourceCodeReact("my-component", testArgs)} />

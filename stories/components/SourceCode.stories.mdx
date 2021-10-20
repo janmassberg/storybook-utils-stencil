@@ -4,8 +4,12 @@ import {
     themes,
     convert as convertTheme,
 } from "@storybook/theming";
-import { generateSourceCodeHtml, SourceCode } from "../../src";
-import { testArgs } from "../../src/utils/test-utils/testArgs";
+import {
+    generateSourceCodeHtml,
+    generateSourceCodeVanillaJs,
+    SourceCode,
+} from "../../src";
+import { testArgs } from "../../src/test-utils/testArgs";
 
 export const template = (args = {}) => {
     const { theme = "dark", codeBlocks } = args;
@@ -33,10 +37,15 @@ export const storyWrapper = (Story) => {
 
 # SourceCode
 
-The `SourceCode` component can be used to group code snippets and provide a tab navigation to only show the code that is relevant for the user.
+The `SourceCode` component can be used in a MDX story to group code snippets and provide a tab navigation to only show
+code that is relevant for the user.
+
+### Default
+
+By default, code is displayed on a `dark` background.
 
 <Story
-    name="SourceCode"
+    name="Default"
     args={{
         theme: "dark",
         codeBlocks: {
@@ -49,13 +58,7 @@ The `SourceCode` component can be used to group code snippets and provide a tab 
             javascript: [
                 {
                     language: "javascript",
-                    code: `
-<script>
-  const element = document.querySelector("my-component");
-  element.onChange = function() {
-    // handle change event
-  };
-</script>`,
+                    code: generateSourceCodeVanillaJs("my-component", testArgs),
                 },
             ],
         },
@@ -64,6 +67,62 @@ The `SourceCode` component can be used to group code snippets and provide a tab 
 >
     {template.bind({})}
 </Story>
+
+### Light Theme
+
+Set `theme` to `light` if you prefer a light background for the code.
+
+<Story
+    name="Light theme"
+    args={{
+        theme: "light",
+        codeBlocks: {
+            html: [
+                {
+                    language: "html",
+                    code: generateSourceCodeHtml("my-component", testArgs),
+                },
+            ],
+            javascript: [
+                {
+                    language: "javascript",
+                    code: generateSourceCodeVanillaJs("my-component", testArgs),
+                },
+            ],
+        },
+    }}
+    decorators={[storyWrapper]}
+>
+    {template.bind({})}
+</Story>
+
+### Multiple Blocks
+
+A codeBlock entry can have multiple code fragments.
+Optionally, a title can be passed in which can describe the code snippet.
+
+<Story
+    name="Multiple blocks"
+    args={{
+        codeBlocks: {
+            vanillaJS: [
+                {
+                    language: "html",
+                    code: generateSourceCodeHtml("my-component", testArgs),
+                },
+                {
+                    language: "html",
+                    code: generateSourceCodeVanillaJs("my-component", testArgs),
+                },
+            ],
+        },
+    }}
+    decorators={[storyWrapper]}
+>
+    {template.bind({})}
+</Story>
+
+---
 
 ## Usage
 
@@ -83,13 +142,13 @@ The language is used for code formatting and to display an info badge.
         html: [
             {
                 language: "html",
-                code: "<my-component></my-component>"
+                code: "<my-component id='test-id'></my-component>"
             }
         ],
         javascript: [
             {
                 language: "javascript",
-                code: "const element = document.querySelector('my-component');"
+                code: "const element = document.querySelector('my-component#test-id');"
             }
         ]
     }}
@@ -97,11 +156,7 @@ The language is used for code formatting and to display an info badge.
 `}
 />
 
-### Theme
-
-Set `theme` to either `dark` or `light` to define how the code should be displayed.
-
-<br />
+---
 
 ## Properties
 

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSourceCodeReact should generate valid formatted react JSX code with children 1`] = `
+"<MyComponent>
+  <MyChildComponent fooBar=\\"foo\\">
+    <MyNestedChildComponent barFoo=\\"bar\\">
+      <span class=\\"test-class\\">Test children</span>
+    </MyNestedChildComponent>
+  </MyChildComponent>
+</MyComponent>;
+"
+`;
+
+exports[`generateSourceCodeReact should generate valid formatted react JSX code with props 1`] = `
+"<MyComponent
+  testFalse={false}
+  testTrue={true}
+  testString=\\"test-string\\"
+  testNumber={12345}
+  testArray={[1, 2, 3]}
+  testObject={{ foo: \\"bar\\" }}
+  testFunction={function () {}}
+  onTestEvent={function () {}}
+>
+  Test children
+</MyComponent>;
+"
+`;

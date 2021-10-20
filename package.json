@@ -1,10 +1,16 @@
 {
   "name": "storybook-utils-stencil",
   "version": "0.0.1",
-  "description": "Utilities and Components that extend the built-in storybook features for stencil projects",
+  "description": "Utilities and Components that extend the storybook features for stencil projects",
   "files": [
-    "dist/"
+    "dist/",
+    "esm/",
+    "lib/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janmassberg/storybook-utils-stencil.git"
+  },
   "scripts": {
     "start": "npm run storybook",
     "clean": "rm -rf dist es lib coverage",
@@ -31,6 +37,7 @@
     "@storybook/addon-links": "^6.3.10",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.10",
+    "@testing-library/jest-dom": "^5.14.1",
     "@types/jest": "^27.0.2",
     "@types/prettier": "^2.4.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",

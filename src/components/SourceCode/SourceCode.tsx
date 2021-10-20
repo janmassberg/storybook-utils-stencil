@@ -24,6 +24,10 @@ const Box = styled.div`
 
 const Panel = styled(Box)`
     margin: 0;
+
+    &:not(:last-of-type) {
+        margin-bottom: 1rem;
+    }
 `;
 
 const TabsContainer = styled(Box)`

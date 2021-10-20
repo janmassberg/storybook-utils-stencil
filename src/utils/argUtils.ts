@@ -57,7 +57,8 @@ export const isJsxArg = ([key, value]: ArgEntry): boolean => {
         value !== undefined &&
         value !== null &&
         !isHiddenArg([key, value]) &&
-        !isEventArg([key, value])
+        !isEventArg([key, value]) &&
+        !isHtmlArg([key, value])
     );
 };
 
