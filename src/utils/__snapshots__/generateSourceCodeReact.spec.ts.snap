@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSourceCodeReact should generate valid and formatted react JSX code 1`] = `
+"<MyComponent
+  testFalse={false}
+  testTrue={true}
+  testString=\\"test-string\\"
+  testNumber={12345}
+  testArray={[1, 2, 3]}
+  testObject={{ foo: \\"bar\\" }}
+  testFunction={function () {}}
+  onTestEvent={function () {}}
+>
+  Test children
+</MyComponent>;
+"
+`;
