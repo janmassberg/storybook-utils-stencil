@@ -6,15 +6,19 @@ module.exports = {
     ],
     transform: { "^.+\\.(ts|tsx)$": "ts-jest" },
     collectCoverage: true,
-    collectCoverageFrom: ["src/**/*.tsx?"],
-    coveragePathIgnorePatterns: ["node_modules", "<rootDir>/src/test-utils"],
+    collectCoverageFrom: ["src/**/*.ts"],
+    coveragePathIgnorePatterns: [
+        "node_modules",
+        "<rootDir>/src/test-utils",
+        "/index.(ts|tsx)$",
+    ],
     coverageDirectory: "<rootDir>/coverage/",
     coverageThreshold: {
         global: {
-            branches: 90,
-            functions: 90,
+            branches: 75,
+            functions: 75,
             lines: 75,
-            statements: 90,
+            statements: 75,
         },
     },
 };
