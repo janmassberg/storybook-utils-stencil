@@ -1,6 +1,6 @@
 {
   "name": "@jmassberg/storybook-utils-stencil",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utilities and Components that extend the storybook features for stencil projects",
   "files": [
     "dist/",
@@ -33,6 +33,10 @@
     "test": "jest",
     "test-update": "jest -u",
     "test-report": "jest --json --outputFile ./jest.report.json --coverage"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "@storybook/addon-essentials": "^6.3.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
