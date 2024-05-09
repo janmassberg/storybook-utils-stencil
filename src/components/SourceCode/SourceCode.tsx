@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
-import { TabButton, Source, Badge } from "@storybook/components";
+import { Source } from "@storybook/blocks";
+import { TabButton, Badge } from "@storybook/components";
 import { styled } from "@storybook/theming";
 import { SourceCodeBlockGroup, SourceCodeBlocks } from "./types";
 
@@ -82,6 +83,7 @@ export const SourceCode: FC<SourceCodeProps> = ({
                             <Source
                                 dark={theme === "dark"}
                                 code={code}
+                                // @ts-expect-error: FIXME
                                 language={language}
                             />
                         </Box>
