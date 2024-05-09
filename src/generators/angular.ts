@@ -1,18 +1,23 @@
-import { toKebabCase, toUpperCamelCase, ucFirst } from "./stringUtils";
-import { formatJsx } from "./formatJsx";
-import { formatHtml } from "./formatHtml";
-import { objectToString } from "./objectToString";
-import { filterHtmlAttributes, filterEventHandlers, filterJsxProperties, ArgsType } from "./argUtils";
+import {
+    ArgsType,
+    formatJsx,
+    filterEventHandlers,
+    filterHtmlAttributes,
+    filterJsxProperties,
+    formatHtml,
+    objectToString,
+    toKebabCase,
+    toUpperCamelCase,
+    ucFirst,
+} from "../utils";
 
-const transformAngularAttributes = (
-    attributes: ArgsType
-) => {
+const transformAngularAttributes = (attributes: ArgsType) => {
     return attributes.map(([key, value]) => {
         return `${toKebabCase(key)}="${value}"`;
     });
 };
 
-export const generateSourceAngularHtml = (
+export const generateSourceCodeAngularHtml = (
     component: string,
     args: any
 ): string => {
@@ -34,7 +39,7 @@ export const generateSourceAngularHtml = (
     return formatHtml(angularComponentSource);
 };
 
-export const generateSourceAngularComponent = (
+export const generateSourceCodeAngularComponent = (
     component: string,
     args: any
 ) => {

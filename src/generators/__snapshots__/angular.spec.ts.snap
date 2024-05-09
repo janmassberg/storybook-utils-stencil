@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateSourceCodeAngular should generate valid formatted angular component source code 1`] = `
+exports[`generateSourceCodeAngularComponent should generate valid formatted angular component source code 1`] = `
 "import { Component } from \\"@angular/core\\";
 
 @Component({
@@ -23,7 +23,7 @@ export class MyComponentExampleComponent {
 "
 `;
 
-exports[`generateSourceCodeAngular should generate valid formatted angular component source code with children 1`] = `
+exports[`generateSourceCodeAngularComponent should generate valid formatted angular component source code with children 1`] = `
 "import { Component } from \\"@angular/core\\";
 
 @Component({
@@ -34,7 +34,7 @@ export class MyComponentExampleComponent {}
 "
 `;
 
-exports[`generateSourceCodeAngular should generate valid formatted angular html template source code 1`] = `
+exports[`generateSourceCodeAngularHtml should generate valid formatted angular html template source code 1`] = `
 "<my-component
   test-false=\\"false\\"
   test-true=\\"true\\"
@@ -50,7 +50,7 @@ exports[`generateSourceCodeAngular should generate valid formatted angular html 
 "
 `;
 
-exports[`generateSourceCodeAngular should generate valid formatted angular html template source code with children 1`] = `
+exports[`generateSourceCodeAngularHtml should generate valid formatted angular html template source code with children 1`] = `
 "<my-component>
   <my-child-component foo-bar=\\"foo\\">
     <my-nested-child-component bar-foo=\\"bar\\">

@@ -1,4 +1,4 @@
-import { generateSourceCodeReact } from "./generateSourceCodeReact";
+import { generateSourceCodeReact } from "./react";
 import { testArgs } from "../test-utils/testArgs";
 
 describe("generateSourceCodeReact", () => {

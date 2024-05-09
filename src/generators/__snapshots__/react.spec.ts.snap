@@ -6,7 +6,7 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
     <MyComponent>
       <MyChildComponent fooBar=\\"foo\\">
         <MyNestedChildComponent barFoo=\\"bar\\">
-          <span =\\"test-class\\">Test children</span>
+          <span className=\\"test-class\\">Test children</span>
         </MyNestedChildComponent>
       </MyChildComponent>
     </MyComponent>

@@ -1,6 +1,9 @@
-import { toKebabCase } from "./stringUtils";
-import { formatHtml } from "./formatHtml";
-import { filterHtmlAttributes, ArgsType } from "./argUtils";
+import {
+    ArgsType,
+    filterHtmlAttributes,
+    formatHtml,
+    toKebabCase,
+} from "../utils";
 
 const generateHtmlAttributes = (attributes: ArgsType): string => {
     return attributes

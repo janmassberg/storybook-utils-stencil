@@ -1,17 +1,17 @@
-import { formatJsx } from "./formatJsx";
 import {
     ArgsType,
+    formatJsx,
     filterEventHandlers,
     filterHtmlAttributes,
     filterJsxProperties,
-} from "./argUtils";
-import { objectToString } from "./objectToString";
-import { objectToStringJsx } from "./objectToStringJsx";
-import { toLowerCamelCase, toUpperCamelCase, ucFirst } from "./stringUtils";
+    objectToString,
+    objectToStringJsx,
+    toLowerCamelCase,
+    toUpperCamelCase,
+    ucFirst,
+} from "../utils";
 
-const transformReactAttributes = (
-    attributes: ArgsType
-) => {
+const transformReactAttributes = (attributes: ArgsType) => {
     return attributes
         .map(([key, value]) => {
             key = toLowerCamelCase(key);
@@ -78,8 +78,7 @@ export const generateSourceCodeReact = (
     const reactComponentName = toUpperCamelCase(component);
     const reactAttributes = transformReactAttributes(attribs);
     const reactProps = props.map(
-        ([key]) =>
-            `${toLowerCamelCase(key)}={${toLowerCamelCase(key)}}\n`
+        ([key]) => `${toLowerCamelCase(key)}={${toLowerCamelCase(key)}}\n`
     );
     const reactEvents = events.map(
         ([key]) => `on${ucFirst(key)}={on${ucFirst(key)}}\n`
@@ -93,9 +92,9 @@ export const generateSourceCodeReact = (
     const reactEventHandlers = events.map(
         ([key, value]) => `const on${ucFirst(key)} = (event: Event) => {
             ${value
-            .toString()
-            .replace(/^[^{]+{/, "")
-            .replace(/}$/, "")}
+                .toString()
+                .replace(/^[^{]+{/, "")
+                .replace(/}$/, "")}
         };`
     );
 
@@ -118,4 +117,3 @@ export const generateSourceCodeReact = (
     `;
     return formatJsx(reactComponentSource);
 };
-

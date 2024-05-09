@@ -1,10 +1,10 @@
-import { generateSourceCodeVanillaJs } from "./generateSourceCodeVanillaJs";
+import { generateSourceCodeJavascript } from "./javascript";
 import { testArgs } from "../test-utils/testArgs";
 
-describe("generateSourceCodeVanillaJs", () => {
+describe("generateSourceCodeJavascript", () => {
     it("should return an empty string if no props or event handlers", () => {
         expect(
-            generateSourceCodeVanillaJs("my-component", {
+            generateSourceCodeJavascript("my-component", {
                 testString: "test string",
                 testNumber: 12345,
                 testTrue: true,
@@ -17,7 +17,7 @@ describe("generateSourceCodeVanillaJs", () => {
 
     it("should generate a script tag with prop injection and event handlers", () => {
         expect(
-            generateSourceCodeVanillaJs("my-component", testArgs)
+            generateSourceCodeJavascript("my-component", testArgs)
         ).toMatchSnapshot();
     });
 });

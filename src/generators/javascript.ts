@@ -1,8 +1,12 @@
-import { formatHtml } from "./formatHtml";
-import { filterEventHandlers, filterJsxProperties, ArgsType } from "./argUtils";
-import { objectToString } from "./objectToString";
+import {
+    ArgsType,
+    filterEventHandlers,
+    filterJsxProperties,
+    formatHtml,
+    objectToString,
+} from "../utils";
 
-export const generateVanillaJsCode = (
+export const generateJavascriptCode = (
     component: string,
     props: ArgsType,
     events: ArgsType
@@ -37,12 +41,12 @@ export const generateVanillaJsCode = (
     `;
 };
 
-export const generateSourceCodeVanillaJs = (
+export const generateSourceCodeJavascript = (
     component: string,
     args: any
 ): string => {
     const eventHandlers = filterEventHandlers(args);
     const jsxProps = filterJsxProperties(args);
-    const jsCode = generateVanillaJsCode(component, jsxProps, eventHandlers);
+    const jsCode = generateJavascriptCode(component, jsxProps, eventHandlers);
     return jsCode === "" ? "" : formatHtml(`<script>${jsCode}</script>`);
 };

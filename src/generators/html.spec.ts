@@ -1,4 +1,4 @@
-import { generateSourceCodeHtml } from "./generateSourceCodeHtml";
+import { generateSourceCodeHtml } from "./html";
 import { testArgs } from "../test-utils/testArgs";
 
 describe("generateSourceCodeHtml", () => {
