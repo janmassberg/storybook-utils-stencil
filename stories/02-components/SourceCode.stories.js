@@ -1,6 +1,14 @@
 import * as React from "react";
-import { ThemeProvider, convert as convertTheme, themes } from "@storybook/theming";
-import { generateSourceCodeHtml, generateSourceCodeJavascript, SourceCode } from "../../src";
+import {
+    ThemeProvider,
+    convert as convertTheme,
+    themes,
+} from "@storybook/theming";
+import {
+    generateSourceCodeHtml,
+    generateSourceCodeJavascript,
+    SourceCode,
+} from "../../src";
 import { testArgs } from "../../src/test-utils/testArgs";
 
 const Template = ({ theme = "dark", codeBlocks }) => {
@@ -37,19 +45,22 @@ export default {
             javascript: [
                 {
                     language: "javascript",
-                    code: generateSourceCodeJavascript("my-component", testArgs),
+                    code: generateSourceCodeJavascript(
+                        "my-component",
+                        testArgs
+                    ),
                 },
             ],
         },
-    }
-}
+    },
+};
 
 export const Default = {};
 
 export const LightTheme = {
     args: {
-        theme: "light"
-    }
+        theme: "light",
+    },
 };
 
 export const MultipleBlock = {
@@ -62,11 +73,14 @@ export const MultipleBlock = {
                 },
                 {
                     language: "html",
-                    code: generateSourceCodeJavascript("my-component", testArgs),
+                    code: generateSourceCodeJavascript(
+                        "my-component",
+                        testArgs
+                    ),
                 },
             ],
         },
-    }
+    },
 };
 
 export const MultipleTabs = {
@@ -75,15 +89,15 @@ export const MultipleTabs = {
             html: [
                 {
                     language: "html",
-                    code: "<my-component id='test-id'></my-component>"
-                }
+                    code: "<my-component id='test-id'></my-component>",
+                },
             ],
             javascript: [
                 {
                     language: "javascript",
-                    code: "const element = document.querySelector('my-component#test-id');"
-                }
-            ]
+                    code: "const element = document.querySelector('my-component#test-id');",
+                },
+            ],
         },
-    }
+    },
 };

@@ -1,10 +1,7 @@
 import { Meta, Source } from "@storybook/blocks";
 import {
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
     generateSourceCodeHtml,
     generateSourceCodeJavascript,
-    generateSourceCodeReact,
 } from "../../src";
 import { testArgs } from "../../src/test-utils/testArgs";
 
@@ -12,7 +9,6 @@ export const usageExample = `
 import {
     generateSourceCodeHtml,
     generateSourceCodeJavascript,
-    generateSourceCodeReact,
 } from "@jmassberg/storybook-utils-stencil";\n
 const args = {
     testFalse: false,
@@ -28,49 +24,38 @@ const args = {
 };\n
 const htmlCode = generateSourceCodeHtml("my-component", args);
 const jsCode = generateSourceCodeJavascript("my-component", args);
-const reactCode = generateSourceCodeReact("my-component", args);
 `;
 
-<Meta title="Code Generators/generateSourceCode" />
+<Meta title="Code Generators/HTML" />
 
-# Source Code Generators
+# HTML Source Code Generator
 
 ## Usage
+
+-   Use `generateSourceCodeHtml` to generate the HTML source
+-   Use `generateSourceCodeJavascript` to generate the JS script source
 
 <Source code={usageExample} />
 
 ## Output
 
-### Vanilla JS
-
 #### HTML
 
 Use `generateSourceCodeHtml` to generate the HTML source.
 
-<Source dark language="html" type="code" code={generateSourceCodeHtml("my-component", testArgs)} />
+<Source
+    dark
+    language="html"
+    type="code"
+    code={generateSourceCodeHtml("my-component", testArgs)}
+/>
 
 #### Javascript
 
 Use `generateSourceCodeJavascript` to generate the JS script source.
 
-<Source dark language="html" code={generateSourceCodeJavascript("my-component", testArgs)} />
-
-### Angular
-
-#### Angular Template
-
-Use `generateSourceCodeAngularHtml` to generate the Angular HTML template.
-
-<Source dark language="html" code={generateSourceCodeAngularHtml("my-component", testArgs)} />
-
-#### Angular Component
-
-Use `generateSourceCodeAngularComponent` to generate the Angular HTML template.
-
-<Source dark language="typescript" code={generateSourceCodeAngularComponent("my-component", testArgs)} />
-
-### React
-
-Use `generateSourceCodeReact` to generate an integration example for React.
-
-<Source dark language="jsx" code={generateSourceCodeReact("my-component", testArgs)} />
+<Source
+    dark
+    language="html"
+    code={generateSourceCodeJavascript("my-component", testArgs)}
+/>
