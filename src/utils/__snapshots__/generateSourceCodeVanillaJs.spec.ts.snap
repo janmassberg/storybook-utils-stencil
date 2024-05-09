@@ -5,8 +5,12 @@ exports[`generateSourceCodeVanillaJs should generate a script tag with prop inje
   const element = document.querySelector(\\"my-component\\");
   element.testArray = [1, 2, 3];
   element.testObject = { foo: \\"bar\\" };
-  element.testFunction = function () {};
-  element.addEventListener(\\"onTestEvent\\", function () {});
+  element.testFunction = function () {
+    // do nothing
+  };
+  element.addEventListener(\\"onTestEvent\\", function (event) {
+    console.log(event.type);
+  });
 </script>
 "
 `;
