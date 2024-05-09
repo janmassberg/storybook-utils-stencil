@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSourceCodeAngular should generate valid formatted angular component source code 1`] = `
+"import { Component } from \\"@angular/core\\";
+
+@Component({
+  selector: \\"app-my-component-example\\",
+  templateUrl: \\"./my-component-example.component.html\\",
+})
+export class MyComponentExampleComponent {
+  public testArray = [1, 2, 3];
+
+  public testObject = { foo: \\"bar\\" };
+
+  public testFunction = function () {
+    // do nothing
+  };
+
+  onOnTestEvent(event: Event) {
+    console.log(event.type);
+  }
+}
+"
+`;
+
+exports[`generateSourceCodeAngular should generate valid formatted angular component source code with children 1`] = `
+"import { Component } from \\"@angular/core\\";
+
+@Component({
+  selector: \\"app-my-component-example\\",
+  templateUrl: \\"./my-component-example.component.html\\",
+})
+export class MyComponentExampleComponent {}
+"
+`;
+
+exports[`generateSourceCodeAngular should generate valid formatted angular html template source code 1`] = `
+"<my-component
+  test-false=\\"false\\"
+  test-true=\\"true\\"
+  test-string=\\"test-string\\"
+  test-number=\\"12345\\"
+  [testArray]=\\"testArray\\"
+  [testObject]=\\"testObject\\"
+  [testFunction]=\\"testFunction\\"
+  (onTestEvent)=\\"onOnTestEvent($event)\\"
+>
+  Test children
+</my-component>
+"
+`;
+
+exports[`generateSourceCodeAngular should generate valid formatted angular html template source code with children 1`] = `
+"<my-component>
+  <my-child-component foo-bar=\\"foo\\">
+    <my-nested-child-component bar-foo=\\"bar\\">
+      <span class=\\"test-class\\">Test children</span>
+    </my-nested-child-component>
+  </my-child-component>
+</my-component>
+"
+`;
