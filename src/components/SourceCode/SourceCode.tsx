@@ -62,15 +62,17 @@ export const SourceCode: FC<SourceCodeProps> = ({
     return (
         <Wrapper>
             <TabsContainer>
-                {tabs.map(({ name, title }) => (
-                    <TabButton
-                        key={name}
-                        active={activeTab === name}
-                        onClick={() => setActiveTab(name)}
-                    >
-                        {title}
-                    </TabButton>
-                ))}
+                {tabs.map(({ name, title }) => {
+                    return (
+                        <TabButton
+                            key={name}
+                            active={activeTab === name}
+                            onClick={() => setActiveTab(name)}
+                        >
+                            {title}
+                        </TabButton>
+                    );
+                })}
             </TabsContainer>
             {Array.isArray(activeGroup) &&
                 activeGroup.map(({ code, language, title }) => (

@@ -24,10 +24,7 @@ module.exports = {
             "error",
             { varsIgnorePattern: "^h$" },
         ],
-        "no-extra-boolean-cast": 0,
-        "no-unused-vars": 0,
-        "react/jsx-no-bind": 0,
-        "react/jsx-uses-vars": 2,
+        "react/jsx-no-bind": 1,
     },
     overrides: [
         {
