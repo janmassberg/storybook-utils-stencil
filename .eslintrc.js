@@ -11,7 +11,11 @@ module.exports = {
         },
     },
     plugins: ["@typescript-eslint", "react", "jest"],
-    extends: ["eslint:recommended", "plugin:react/recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+    ],
     settings: {
         react: {
             pragma: "React",
@@ -26,12 +30,4 @@ module.exports = {
         ],
         "react/jsx-no-bind": 1,
     },
-    overrides: [
-        {
-            files: ["*.ts", "*.tsx"],
-            rules: {
-                "no-undef": "off",
-            },
-        },
-    ],
 };
