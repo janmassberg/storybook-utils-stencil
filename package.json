@@ -1,11 +1,11 @@
 {
   "name": "@jmassberg/storybook-utils-stencil",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Utilities and Components that extend the storybook features for stencil projects",
+  "main": "index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist/",
-    "es/",
-    "lib/",
     "README.md",
     "LICENSE",
     "index.js",
@@ -17,8 +17,10 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "clean": "rm -rf dist es lib coverage",
-    "build": "rollup -c rollup.config.ts --environment BUILD:prod",
+    "clean": "rm -rf dist coverage",
+    "build": "npm run clean && npm run build:esm && npm run build:lib",
+    "build:esm": "tsc --project tsconfig.json --noEmit false --module esnext --outDir dist/esm",
+    "build:lib": "tsc --project tsconfig.json --noEmit false --module commonjs --outDir dist/lib",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006 --debug-webpack",
     "eslint": "eslint src/**/*{.ts,.tsx}",
@@ -42,10 +44,6 @@
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-actions": "^8.0.10",
     "@storybook/addon-essentials": "^8.0.10",
     "@storybook/addon-links": "^8.0.10",
@@ -68,9 +66,9 @@
     "prettier": "^2.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "rollup": "^4.17.2",
     "storybook": "^8.0.10",
     "ts-jest": "^27.0.6",
+    "ts-loader": "^9.5.1",
     "typescript": "^4.4.4"
   }
 }
