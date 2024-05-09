@@ -5,7 +5,11 @@ import { objectToString } from "./objectToString";
  * @param value {string|number|boolean|function|{}}
  */
 export const objectToStringJsx = (value: any): string => {
-    return typeof value === "string"
-        ? `"${value}"`
-        : `{${objectToString(value)}}`;
+    if (typeof value === "string") {
+        return `"${value}"`;
+    }
+    if (typeof value === "function") {
+        return value.toString();
+    }
+    return `{${objectToString(value)}}`;
 };

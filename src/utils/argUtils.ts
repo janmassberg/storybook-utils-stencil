@@ -66,7 +66,7 @@ export const isJsxArg = ([key, value]: ArgEntry): boolean => {
  * Filters args with valid HTML attributes only
  * @param args {ArgsType}
  */
-export const filterHtmlAttributes: ArgsFilter = (args: ArgsType): ArgsType => {
+export const filterHtmlAttributes: ArgsFilter = (args: any): ArgsType => {
     return Object.entries(args).filter(isHtmlArg);
 };
 
@@ -74,7 +74,7 @@ export const filterHtmlAttributes: ArgsFilter = (args: ArgsType): ArgsType => {
  * Filters args with valid JSX properties only
  * @param args {ArgsType}
  */
-export const filterJsxProperties: ArgsFilter = (args: ArgsType): ArgsType => {
+export const filterJsxProperties: ArgsFilter = (args: any): ArgsType => {
     return Object.entries(args).filter(isJsxArg);
 };
 
@@ -82,6 +82,6 @@ export const filterJsxProperties: ArgsFilter = (args: ArgsType): ArgsType => {
  * Filters args with valid event handlers only
  * @param args {ArgsType}
  */
-export const filterEventHandlers: ArgsFilter = (args: ArgsType): ArgsType => {
+export const filterEventHandlers: ArgsFilter = (args: any): ArgsType => {
     return Object.entries(args).filter(isEventArg);
 };

@@ -11,9 +11,8 @@ export const objectToString = (value: any): string => {
             return `"${value}"`;
         case "number":
         case "boolean":
-            return value.toString();
         case "function":
-            return `function() {}`;
+            return value.toString();
         case "object":
             if (Array.isArray(value)) {
                 return `[${value.map(objectToString).join(", ")}]`;
