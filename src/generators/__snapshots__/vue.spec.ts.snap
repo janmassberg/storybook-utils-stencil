@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateSourceCodeVue should generate valid formatted vue JSX code with children 1`] = `
+"<template>
+  <my-component>
+    <my-child-component foo-bar=\\"foo\\">
+      <my-nested-child-component bar-foo=\\"bar\\">
+        <span class=\\"test-class\\">Test children</span>
+      </my-nested-child-component>
+    </my-child-component>
+  </my-component>
+</template>
+
+<script lang=\\"ts\\">
+  export default { };
+</script>
+"
+`;
+
+exports[`generateSourceCodeVue should generate valid formatted vue JSX code with props 1`] = `
+"<template>
+  <my-component
+    test-false=\\"false\\"
+    test-true=\\"true\\"
+    test-string=\\"test-string\\"
+    test-number=\\"12345\\"
+    .testArray=\\"testArray\\"
+    .testObject=\\"testObject\\"
+    .testFunction=\\"testFunction\\"
+    @onTestEvent=\\"onOnTestEvent\\"
+  >
+    Test children
+  </my-component>
+</template>
+
+<script lang=\\"ts\\">
+  export default { data() { return { testArray: [1, 2, 3], testObject: {foo:
+  \\"bar\\"}, testFunction: function () { // do nothing } }; }, methods: {
+  onOnTestEvent: function (event) { console.log(event.type); } }, };
+</script>
+"
+`;
