@@ -21,7 +21,7 @@ describe("generateSourceCodeAngularComponent", () => {
     it("should generate valid formatted angular component source code with children", () => {
         expect(
             generateSourceCodeAngularComponent("my-component", {
-                _children: testSlot,
+                _slot: testSlot,
             })
         ).toMatchSnapshot();
     });
@@ -37,7 +37,7 @@ describe("generateSourceCodeAngularHtml", () => {
     it("should generate valid formatted angular html template source code with children", () => {
         expect(
             generateSourceCodeAngularHtml("my-component", {
-                _children: testSlot,
+                _slot: testSlot,
             })
         ).toMatchSnapshot();
     });

@@ -73,7 +73,7 @@ export const generateSourceCodeReact = (
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = typeof args._children === "string" ? args._children : "";
+    const slot = typeof args._slot === "string" ? args._slot : "";
 
     const reactComponentName = toUpperCamelCase(component);
     const reactAttributes = transformReactAttributes(attribs);

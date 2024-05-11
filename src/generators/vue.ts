@@ -21,7 +21,7 @@ export const generateSourceCodeVue = (component: string, args: any) => {
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = args._children || "";
+    const slot = args._slot || "";
 
     const vueComponentName = toKebabCase(component);
     const vueAttributes = transformVueAttributes(attribs);

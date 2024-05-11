@@ -11,7 +11,7 @@ describe("generateSourceCodeReact", () => {
     it("should generate valid formatted react JSX code with children", () => {
         expect(
             generateSourceCodeReact("my-component", {
-                _children: `<my-child-component foo-bar="foo">
+                _slot: `<my-child-component foo-bar="foo">
     <my-nested-child-component bar-foo="bar">
     <span class="test-class">Test children</span></my-nested-child-component>
 </my-child-component>`,

@@ -23,7 +23,7 @@ export const generateSourceCodeHtml = (
     args: any
 ): string => {
     const htmlAttributes = generateHtmlAttributes(filterHtmlAttributes(args));
-    const children = args._children || "";
+    const children = args._slot || "";
     return formatHtml(
         `<${component} ${htmlAttributes}>${children}</${component}>`
     );

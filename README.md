@@ -34,7 +34,7 @@ const args = {
         foo: "bar",
     },
     onTestEvent: testArgEventHandler,
-    _children: "Test children",
+    _slot: "Test children",
 };
 
 const htmlCode = generateSourceCodeHtml("my-component", args);

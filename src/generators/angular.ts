@@ -24,7 +24,7 @@ export const generateSourceCodeAngularHtml = (
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = args._children || "";
+    const slot = args._slot || "";
 
     const angularAttributes = transformAngularAttributes(attribs);
     const angularProps = props.map(([key]) => `[${key}]="${key}"\n`);

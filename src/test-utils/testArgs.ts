@@ -15,5 +15,5 @@ export const testArgs = {
     onTestEvent: (event: Event): void => {
         console.log(event.type);
     },
-    _children: "Test children",
+    _slot: "Test children",
 };
