@@ -1,7 +1,6 @@
 # build folders
 dist/
-es/
-lib/
+out/
 
 # Dependency directories
 node_modules/

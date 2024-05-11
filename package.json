@@ -2,10 +2,11 @@
   "name": "@jmassberg/storybook-utils-stencil",
   "version": "0.2.0",
   "description": "Utilities and Components that extend the storybook features for stencil projects",
-  "main": "index.js",
+  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "typings": "dist/types/index.d.ts",
   "files": [
-    "dist/",
+    "dist",
     "README.md",
     "LICENSE",
     "index.js",
@@ -17,10 +18,9 @@
   },
   "scripts": {
     "start": "npm run storybook",
-    "clean": "rm -rf dist coverage",
-    "build": "npm run clean && npm run build:esm && npm run build:lib",
-    "build:esm": "tsc --project tsconfig.json --noEmit false --module esnext --outDir dist/esm",
-    "build:lib": "tsc --project tsconfig.json --noEmit false --module commonjs --outDir dist/lib",
+    "clean": "rm -rf dist out coverage",
+    "prebuild": "npm run clean",
+    "build": "rollup -c rollup.config.ts --environment BUILD:prod",
     "build-storybook": "storybook build",
     "storybook": "storybook dev -p 6006 --debug-webpack",
     "eslint": "eslint src/**/*{.ts,.tsx}",
@@ -32,8 +32,8 @@
     "lint:fix": "npm run eslint:fix && npm run prettier:fix",
     "tslint": "tsc --noEmit",
     "test": "jest",
-    "test-update": "jest -u",
-    "test-report": "jest --json --outputFile ./jest.report.json --coverage"
+    "test:update": "jest -u",
+    "test:report": "jest --json --outputFile ./jest.report.json --coverage"
   },
   "dependencies": {
     "prettier": "2.8.8"
