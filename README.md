@@ -1,6 +1,6 @@
-# @jmassberg/storybook-utils-stencil
+# @jmassberg/storybook-utils
 
-Utilities and Components that extend the storybook features for stencil projects
+Utilities, code generators and components for storybook based library documentation
 
 ## Requirements
 
@@ -10,7 +10,7 @@ The provided utilities and components depend on modules that are usually install
 ## Installation
 
 ```shell
-npm i @jmassberg/storybook-utils-stencil
+npm i @jmassberg/storybook-utils
 ```
 
 ## Utilities
@@ -20,9 +20,9 @@ npm i @jmassberg/storybook-utils-stencil
 ```jsx
 import {
     generateSourceCodeHtml,
-    generateSourceCodeVanillaJs,
+    generateSourceCodeJavascript,
     generateSourceCodeReact,
-} from "@jmassberg/storybook-utils-stencil";
+} from "@jmassberg/storybook-utils";
 
 const args = {
     testFalse: false,
@@ -38,7 +38,7 @@ const args = {
 };
 
 const htmlCode = generateSourceCodeHtml("my-component", args);
-const jsCode = generateSourceCodeVanillaJs("my-component", args);
+const jsCode = generateSourceCodeJavascript("my-component", args);
 const reactCode = generateSourceCodeReact("my-component", args);
 ```
 
@@ -49,7 +49,7 @@ const reactCode = generateSourceCodeReact("my-component", args);
 In your MDX story:
 
 ```jsx
-import { SourceCode } from "@jmassberg/storybook-utils-stencil";
+import { SourceCode } from "@jmassberg/storybook-utils";
 
 <SourceCode
     theme="dark"

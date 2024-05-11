@@ -1,7 +1,7 @@
 {
-  "name": "@jmassberg/storybook-utils-stencil",
-  "version": "0.2.0",
-  "description": "Utilities and Components that extend the storybook features for stencil projects",
+  "name": "@jmassberg/storybook-utils",
+  "version": "0.1.0",
+  "description": "Utilities, code generators and components for storybook based library documentation",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/types/index.d.ts",
