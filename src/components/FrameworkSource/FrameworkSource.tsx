@@ -4,10 +4,10 @@ import {
     CodeGeneratorArgs,
     generateSourceCodeAngularComponent,
     generateSourceCodeAngularHtml,
-    generateSourceCodeHtml,
-    generateSourceCodeJavascript,
-    generateSourceCodeReact,
-    generateSourceCodeReactComponent,
+    generateSourceHtmlMarkup,
+    generateSourceHtmlScript,
+    generateSourceReactJsx,
+    generateSourceReactFC,
     generateSourceCodeVue,
 } from "../../generators";
 
@@ -35,11 +35,11 @@ export const FrameworkSource: FC<FrameworkSourceProps> = ({
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceCodeHtml(generatorArgs),
+                    code: generateSourceHtmlMarkup(generatorArgs),
                 },
                 {
                     language: "html",
-                    code: generateSourceCodeJavascript(generatorArgs),
+                    code: generateSourceHtmlScript(generatorArgs),
                 },
             ],
             Angular: [
@@ -55,11 +55,11 @@ export const FrameworkSource: FC<FrameworkSourceProps> = ({
             React: [
                 {
                     language: "jsx",
-                    code: generateSourceCodeReact(generatorArgs),
+                    code: generateSourceReactJsx(generatorArgs),
                 },
                 {
                     language: "typescript",
-                    code: generateSourceCodeReactComponent(generatorArgs),
+                    code: generateSourceReactFC(generatorArgs),
                 },
             ],
             Vue: [

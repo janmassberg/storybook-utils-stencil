@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateSourceCodeReact should generate valid formatted react JSX code with args 1`] = `
+exports[`generateSourceReactJsx should generate valid formatted react JSX code with args 1`] = `
 "<MyComponent
   testTrue
   testString="test-string"
@@ -19,7 +19,7 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
 </MyComponent>"
 `;
 
-exports[`generateSourceCodeReact should generate valid formatted react JSX code with children 1`] = `
+exports[`generateSourceReactJsx should generate valid formatted react JSX code with children 1`] = `
 "<MyComponent>
   <MyChildComponent fooBar="foo">
     <MyNestedChildComponent barFoo="bar">
@@ -29,7 +29,7 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
 </MyComponent>"
 `;
 
-exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with args 1`] = `
+exports[`generateSourceReactFC should generate the source code for a basic integration with args 1`] = `
 "import * as React from "react";
 
 const MyComponentExample: React.FC = () => {
@@ -62,7 +62,7 @@ const MyComponentExample: React.FC = () => {
 "
 `;
 
-exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with children 1`] = `
+exports[`generateSourceReactFC should generate the source code for a basic integration with children 1`] = `
 "import * as React from "react";
 
 const MyComponentExample: React.FC = () => {

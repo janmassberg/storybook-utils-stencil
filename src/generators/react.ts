@@ -67,7 +67,7 @@ const transformChildComponents = (str: string | undefined): string => {
     return str.replace(/(\s)class=/gi, "$1className=");
 };
 
-export const generateSourceCodeReact = ({
+export const generateSourceReactJsx = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {
@@ -90,7 +90,7 @@ export const generateSourceCodeReact = ({
     return formatJsx(reactComponentJsx).replace(/;\s+?$/, "");
 };
 
-export const generateSourceCodeReactComponent = ({
+export const generateSourceReactFC = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

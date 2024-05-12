@@ -51,7 +51,7 @@ export const generateSourceCodeAngularComponent = ({
     });
     const angularEventHandlers = events.map(
         ([key, value]) => `on${ucFirst(key)} (event: Event) {
-            ${value
+            ${(value as string)
                 .toString()
                 .replace(/^[^{]+{/, "")
                 .replace(/}$/, "")}

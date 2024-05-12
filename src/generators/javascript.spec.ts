@@ -1,10 +1,10 @@
-import { generateSourceCodeJavascript } from "./javascript";
+import { generateSourceHtmlScript } from "./javascript";
 import { testArgsComponentGenerator } from "../test-utils/testArgs";
 
-describe("generateSourceCodeJavascript", () => {
+describe("generateSourceHtmlScript", () => {
     it("should return an empty string if no args or event handlers", () => {
         expect(
-            generateSourceCodeJavascript({
+            generateSourceHtmlScript({
                 ...testArgsComponentGenerator,
                 args: {
                     testString: "test string",
@@ -20,7 +20,7 @@ describe("generateSourceCodeJavascript", () => {
 
     it("should generate a script tag with prop injection and event handlers", () => {
         expect(
-            generateSourceCodeJavascript(testArgsComponentGenerator)
+            generateSourceHtmlScript(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 });

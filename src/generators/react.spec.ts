@@ -1,22 +1,19 @@
-import {
-    generateSourceCodeReact,
-    generateSourceCodeReactComponent,
-} from "./react";
+import { generateSourceReactJsx, generateSourceReactFC } from "./react";
 import {
     testArgsComponentGenerator,
     testCopmonentSlot,
 } from "../test-utils/testArgs";
 
-describe("generateSourceCodeReact", () => {
+describe("generateSourceReactJsx", () => {
     it("should generate valid formatted react JSX code with args", () => {
         expect(
-            generateSourceCodeReact(testArgsComponentGenerator)
+            generateSourceReactJsx(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted react JSX code with children", () => {
         expect(
-            generateSourceCodeReact({
+            generateSourceReactJsx({
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
@@ -26,16 +23,16 @@ describe("generateSourceCodeReact", () => {
     });
 });
 
-describe("generateSourceCodeReactComponent", () => {
+describe("generateSourceReactFC", () => {
     it("should generate the source code for a basic integration with args", () => {
         expect(
-            generateSourceCodeReactComponent(testArgsComponentGenerator)
+            generateSourceReactFC(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate the source code for a basic integration with children", () => {
         expect(
-            generateSourceCodeReactComponent({
+            generateSourceReactFC({
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,

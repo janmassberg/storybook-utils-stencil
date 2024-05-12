@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateSourceCodeJavascript should generate a script tag with prop injection and event handlers 1`] = `
+exports[`generateSourceHtmlScript should generate a script tag with prop injection and event handlers 1`] = `
 "<script>
   const element = document.querySelector("my-component");
   element.testArray = [1, 2, 3];

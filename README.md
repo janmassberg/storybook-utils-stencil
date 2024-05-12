@@ -19,9 +19,9 @@ npm i @jmassberg/storybook-utils
 
 ```jsx
 import {
-    generateSourceCodeHtml,
-    generateSourceCodeJavascript,
-    generateSourceCodeReact,
+    generateSourceHtmlMarkup,
+    generateSourceHtmlScript,
+    generateSourceReactJsx,
 } from "@jmassberg/storybook-utils";
 
 const args = {
@@ -37,9 +37,9 @@ const args = {
     _slot: "Test children",
 };
 
-const htmlCode = generateSourceCodeHtml("my-component", args);
-const jsCode = generateSourceCodeJavascript("my-component", args);
-const reactCode = generateSourceCodeReact("my-component", args);
+const htmlCode = generateSourceHtmlMarkup("my-component", args);
+const jsCode = generateSourceHtmlScript("my-component", args);
+const reactCode = generateSourceReactJsx("my-component", args);
 ```
 
 ## Components

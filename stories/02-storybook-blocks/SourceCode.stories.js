@@ -1,8 +1,8 @@
 import * as React from "react";
 import { storyWrapper } from "../utils";
 import {
-    generateSourceCodeJavascript,
-    generateSourceCodeHtml,
+    generateSourceHtmlScript,
+    generateSourceHtmlMarkup,
     SourceCode,
 } from "../../src";
 import { testArgs } from "../../src/test-utils/testArgs";
@@ -25,7 +25,7 @@ export default {
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceCodeHtml("my-component", testArgs),
+                    code: generateSourceHtmlMarkup("my-component", testArgs),
                 },
             ],
         },
@@ -46,14 +46,11 @@ export const MultipleBlock = {
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceCodeHtml("my-component", testArgs),
+                    code: generateSourceHtmlMarkup("my-component", testArgs),
                 },
                 {
                     language: "html",
-                    code: generateSourceCodeJavascript(
-                        "my-component",
-                        testArgs
-                    ),
+                    code: generateSourceHtmlScript("my-component", testArgs),
                 },
             ],
         },

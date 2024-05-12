@@ -19,7 +19,7 @@ const generateHtmlAttributes = (attributes: ArgEntries): string => {
         .join(" ");
 };
 
-export const generateSourceCodeHtml = ({
+export const generateSourceHtmlMarkup = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

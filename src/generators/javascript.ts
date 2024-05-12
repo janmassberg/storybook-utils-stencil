@@ -42,7 +42,7 @@ const generateJavascriptCode = (
     `;
 };
 
-export const generateSourceCodeJavascript = ({
+export const generateSourceHtmlScript = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

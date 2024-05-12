@@ -1,10 +1,10 @@
-import { generateSourceCodeHtml } from "./html";
+import { generateSourceHtmlMarkup } from "./html";
 import { testArgsComponentGenerator } from "../test-utils/testArgs";
 
-describe("generateSourceCodeHtml", () => {
+describe("generateSourceHtmlMarkup", () => {
     it("should build the HTML source for a component with args correctly", () => {
         expect(
-            generateSourceCodeHtml(testArgsComponentGenerator)
+            generateSourceHtmlMarkup(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 });

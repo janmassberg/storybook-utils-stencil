@@ -3,23 +3,20 @@ import {
     generatorIntegrationArgs,
     generatorIntegrationSourceArgs,
 } from "./generator.templates";
-import {
-    generateSourceCodeReact,
-    generateSourceCodeReactComponent,
-} from "../../src";
+import { generateSourceReactJsx, generateSourceReactFC } from "../../src";
 
 <Meta title="Code Generators/React" />
 
-# React Source Code Generator
+# React Source Generators
 
 ## React JSX
 
-Use `generateSourceCodeReact` to generate the React component JSX source.
+Use `generateSourceReactJsx` to generate the React component JSX source.
 
 <Source
     code={`
-import { generateSourceCodeReact } from "@jmassberg/storybook-utils";\n
-const reactJsxSource = generateSourceCodeReact(${generatorIntegrationSourceArgs});
+import { generateSourceReactJsx } from "@jmassberg/storybook-utils";\n
+const reactJsxSource = generateSourceReactJsx(${generatorIntegrationSourceArgs});
 `}
 />
 
@@ -28,17 +25,17 @@ const reactJsxSource = generateSourceCodeReact(${generatorIntegrationSourceArgs}
 <Source
     dark
     language="jsx"
-    code={generateSourceCodeReact(generatorIntegrationArgs)}
+    code={generateSourceReactJsx(generatorIntegrationArgs)}
 />
 
 ## React Function Component
 
-Use `generateSourceCodeReactComponent` to generate an example React component integration source.
+Use `generateSourceReactFC` to generate an example React component integration source.
 
 <Source
     code={`
-import { generateSourceCodeReactComponent } from "@jmassberg/storybook-utils";\n
-const reactFCSource = generateSourceCodeReactComponent(${generatorIntegrationSourceArgs});
+import { generateSourceReactFC } from "@jmassberg/storybook-utils";\n
+const reactFCSource = generateSourceReactFC(${generatorIntegrationSourceArgs});
 `}
 />
 
@@ -47,5 +44,5 @@ const reactFCSource = generateSourceCodeReactComponent(${generatorIntegrationSou
 <Source
     dark
     language="jsx"
-    code={generateSourceCodeReactComponent(generatorIntegrationArgs)}
+    code={generateSourceReactFC(generatorIntegrationArgs)}
 />
