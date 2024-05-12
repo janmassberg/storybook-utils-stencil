@@ -71,7 +71,10 @@ const reactJsx = generateSourceReactJsx({
 - `FrameworkSource`
 - `SourceCode`
 
-#### SourceCode
+#### FrameworkSource
+
+The `<FrameworkSource>` component can be used in MDX stories to display integration source for all supported frameworks
+(HTML, Angular, React and Vue) in separate tabs.
 
 ```jsx
 import { FrameworkSource } from "@jmassberg/storybook-utils";
@@ -91,6 +94,9 @@ import { FrameworkSource } from "@jmassberg/storybook-utils";
 ```
 
 #### SourceCode
+
+The `<SourceCode>` component can be used in MDX stories to group code snippets and provide a tab navigation to only show
+code that is relevant for the user.
 
 ```jsx
 import { SourceCode } from "@jmassberg/storybook-utils";
