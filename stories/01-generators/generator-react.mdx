@@ -1,6 +1,9 @@
 import { Meta, Source } from "@storybook/blocks";
-import { generateSourceCodeReact } from "../../src";
-import { testArgsButton } from "../../src/test-utils/testArgs";
+import {
+    generateSourceCodeReact,
+    generateSourceCodeReactComponent,
+} from "../../src";
+import { testArgs, testArgsButton } from "../../src/test-utils/testArgs";
 
 export const usageExample = `
 import { generateSourceCodeReact } from "@jmassberg/storybook-utils";\n
@@ -27,8 +30,22 @@ Use `generateSourceCodeReact` to generate an integration example for React.
 
 ## Output
 
+#### React JSX
+
+Use `generateSourceCodeReact` to generate the React component JSX source.
+
 <Source
     dark
     language="jsx"
     code={generateSourceCodeReact("ui-button", testArgsButton)}
+/>
+
+#### React Component
+
+Use `generateSourceCodeReactComponent` to generate an example React component integration source.
+
+<Source
+    dark
+    language="jsx"
+    code={generateSourceCodeReactComponent("my-component", testArgs)}
 />
