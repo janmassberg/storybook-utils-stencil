@@ -3,7 +3,7 @@ import {
     generatorIntegrationArgs,
     generatorIntegrationSourceArgs,
 } from "./generator.templates";
-import { generateSourceCodeVue } from "../../src";
+import { generateSourceVueComponent } from "../../src";
 
 <Meta title="Code Generators/Vue" />
 
@@ -11,12 +11,12 @@ import { generateSourceCodeVue } from "../../src";
 
 ## Vue Component
 
-Use `generateSourceCodeVue` to generate an integration example for Vue.
+Use `generateSourceVueComponent` to generate an integration example for Vue.
 
 <Source
     code={`
-import { generateSourceCodeVue } from "@jmassberg/storybook-utils";\n
-const vueComponentSource = generateSourceCodeVue(${generatorIntegrationSourceArgs});
+import { generateSourceVueComponent } from "@jmassberg/storybook-utils";\n
+const vueComponentSource = generateSourceVueComponent(${generatorIntegrationSourceArgs});
 `}
 />
 
@@ -25,5 +25,5 @@ const vueComponentSource = generateSourceCodeVue(${generatorIntegrationSourceArg
 <Source
     dark
     language="html"
-    code={generateSourceCodeVue(generatorIntegrationArgs)}
+    code={generateSourceVueComponent(generatorIntegrationArgs)}
 />

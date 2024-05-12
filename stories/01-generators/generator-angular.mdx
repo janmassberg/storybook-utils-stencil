@@ -4,8 +4,8 @@ import {
     generatorIntegrationSourceArgs,
 } from "./generator.templates";
 import {
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
+    generateSourceAngularComponent,
+    generateSourceAngularHtml,
 } from "../../src";
 
 <Meta title="Code Generators/Angular" />
@@ -14,12 +14,12 @@ import {
 
 ## Angular Template
 
-Use `generateSourceCodeAngularHtml` to generate the Angular template source.
+Use `generateSourceAngularHtml` to generate the Angular template source.
 
 <Source
     code={`
-import { generateSourceCodeAngularHtml } from "@jmassberg/storybook-utils";\n
-const angularHtmlSource = generateSourceCodeAngularHtml(${generatorIntegrationSourceArgs});
+import { generateSourceAngularHtml } from "@jmassberg/storybook-utils";\n
+const angularHtmlSource = generateSourceAngularHtml(${generatorIntegrationSourceArgs});
 `}
 />
 
@@ -29,17 +29,17 @@ const angularHtmlSource = generateSourceCodeAngularHtml(${generatorIntegrationSo
     dark
     language="html"
     type="code"
-    code={generateSourceCodeAngularHtml(generatorIntegrationArgs)}
+    code={generateSourceAngularHtml(generatorIntegrationArgs)}
 />
 
 ## Angular Component
 
-Use `generateSourceCodeAngularComponent` to generate the Angualar component source.
+Use `generateSourceAngularComponent` to generate the Angualar component source.
 
 <Source
     code={`
-import { generateSourceCodeAngularComponent } from "@jmassberg/storybook-utils";\n
-const angularComponentSource = generateSourceCodeAngularComponent(${generatorIntegrationSourceArgs});
+import { generateSourceAngularComponent } from "@jmassberg/storybook-utils";\n
+const angularComponentSource = generateSourceAngularComponent(${generatorIntegrationSourceArgs});
 `}
 />
 
@@ -48,5 +48,5 @@ const angularComponentSource = generateSourceCodeAngularComponent(${generatorInt
 <Source
     dark
     language="typescript"
-    code={generateSourceCodeAngularComponent(generatorIntegrationArgs)}
+    code={generateSourceAngularComponent(generatorIntegrationArgs)}
 />

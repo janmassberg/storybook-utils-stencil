@@ -1,5 +1,9 @@
+export interface CodeGeneratorFn {
+    (args: CodeGeneratorArgs): string;
+}
+
 export interface CodeGeneratorArgs {
     component: string;
     args: Record<string, unknown>;
-    propsTypes?: Record<string, string> | undefined;
+    argyTypes?: Record<string, string> | undefined;
 }

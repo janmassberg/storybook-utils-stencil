@@ -1,19 +1,19 @@
-import { generateSourceCodeVue } from "./vue";
+import { generateSourceVueComponent } from "./vue";
 import {
     testArgsComponentGenerator,
     testCopmonentSlot,
 } from "../test-utils/testArgs";
 
-describe("generateSourceCodeVue", () => {
+describe("generateSourceVueComponent", () => {
     it("should generate valid formatted vue JSX code with args", () => {
         expect(
-            generateSourceCodeVue(testArgsComponentGenerator)
+            generateSourceVueComponent(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted vue JSX code with children", () => {
         expect(
-            generateSourceCodeVue({
+            generateSourceVueComponent({
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,

@@ -1,22 +1,22 @@
 import {
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
+    generateSourceAngularComponent,
+    generateSourceAngularHtml,
 } from "./angular";
 import {
     testArgsComponentGenerator,
     testCopmonentSlot,
 } from "../test-utils/testArgs";
 
-describe("generateSourceCodeAngularComponent", () => {
+describe("generateSourceAngularComponent", () => {
     it("should generate valid formatted angular component source code", () => {
         expect(
-            generateSourceCodeAngularComponent(testArgsComponentGenerator)
+            generateSourceAngularComponent(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted angular component source code with children", () => {
         expect(
-            generateSourceCodeAngularComponent({
+            generateSourceAngularComponent({
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
@@ -26,16 +26,16 @@ describe("generateSourceCodeAngularComponent", () => {
     });
 });
 
-describe("generateSourceCodeAngularHtml", () => {
+describe("generateSourceAngularHtml", () => {
     it("should generate valid formatted angular html template source code", () => {
         expect(
-            generateSourceCodeAngularHtml(testArgsComponentGenerator)
+            generateSourceAngularHtml(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted angular html template source code with children", () => {
         expect(
-            generateSourceCodeAngularHtml({
+            generateSourceAngularHtml({
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,

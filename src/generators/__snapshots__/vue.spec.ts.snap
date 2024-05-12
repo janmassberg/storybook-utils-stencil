@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateSourceCodeVue should generate valid formatted vue JSX code with args 1`] = `
+exports[`generateSourceVueComponent should generate valid formatted vue JSX code with args 1`] = `
 "<template>
   <my-component
     test-false="false"
@@ -38,7 +38,7 @@ exports[`generateSourceCodeVue should generate valid formatted vue JSX code with
 "
 `;
 
-exports[`generateSourceCodeVue should generate valid formatted vue JSX code with children 1`] = `
+exports[`generateSourceVueComponent should generate valid formatted vue JSX code with children 1`] = `
 "<template>
   <my-component>
     <my-child-component foo-bar="foo">

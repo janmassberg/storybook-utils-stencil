@@ -1,4 +1,4 @@
-import type { CodeGeneratorArgs } from "./types";
+import type { CodeGeneratorArgs, CodeGeneratorFn } from "./types";
 import {
     ArgEntries,
     filterEventHandlers,
@@ -18,7 +18,7 @@ const transformAngularAttributes = (attributes: ArgEntries) => {
     });
 };
 
-export const generateSourceCodeAngularHtml = ({
+export const generateSourceAngularHtml: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {
@@ -40,7 +40,7 @@ export const generateSourceCodeAngularHtml = ({
     return formatHtml(angularComponentSource);
 };
 
-export const generateSourceCodeAngularComponent = ({
+export const generateSourceAngularComponent: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

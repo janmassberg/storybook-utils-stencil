@@ -1,4 +1,4 @@
-import type { CodeGeneratorArgs } from "./types";
+import type { CodeGeneratorArgs, CodeGeneratorFn } from "./types";
 import {
     ArgEntries,
     formatJsx,
@@ -67,7 +67,7 @@ const transformChildComponents = (str: string | undefined): string => {
     return str.replace(/(\s)class=/gi, "$1className=");
 };
 
-export const generateSourceReactJsx = ({
+export const generateSourceReactJsx: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {
@@ -90,7 +90,7 @@ export const generateSourceReactJsx = ({
     return formatJsx(reactComponentJsx).replace(/;\s+?$/, "");
 };
 
-export const generateSourceReactFC = ({
+export const generateSourceReactFC: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

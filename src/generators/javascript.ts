@@ -1,4 +1,4 @@
-import type { CodeGeneratorArgs } from "./types";
+import type { CodeGeneratorArgs, CodeGeneratorFn } from "./types";
 import {
     ArgEntries,
     filterEventHandlers,
@@ -42,7 +42,7 @@ const generateJavascriptCode = (
     `;
 };
 
-export const generateSourceHtmlScript = ({
+export const generateSourceHtmlScript: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {

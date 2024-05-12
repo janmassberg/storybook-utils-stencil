@@ -2,13 +2,13 @@ import React, { FC, useMemo } from "react";
 import { SourceCode, SourceCodeBlocks } from "../SourceCode";
 import {
     CodeGeneratorArgs,
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
+    generateSourceAngularComponent,
+    generateSourceAngularHtml,
     generateSourceHtmlMarkup,
     generateSourceHtmlScript,
     generateSourceReactJsx,
     generateSourceReactFC,
-    generateSourceCodeVue,
+    generateSourceVueComponent,
 } from "../../generators";
 
 export interface FrameworkSourceProps {
@@ -45,11 +45,11 @@ export const FrameworkSource: FC<FrameworkSourceProps> = ({
             Angular: [
                 {
                     language: "html",
-                    code: generateSourceCodeAngularHtml(generatorArgs),
+                    code: generateSourceAngularHtml(generatorArgs),
                 },
                 {
                     language: "typescript",
-                    code: generateSourceCodeAngularComponent(generatorArgs),
+                    code: generateSourceAngularComponent(generatorArgs),
                 },
             ],
             React: [
@@ -65,7 +65,7 @@ export const FrameworkSource: FC<FrameworkSourceProps> = ({
             Vue: [
                 {
                     language: "html",
-                    code: generateSourceCodeVue(generatorArgs),
+                    code: generateSourceVueComponent(generatorArgs),
                 },
             ],
         };

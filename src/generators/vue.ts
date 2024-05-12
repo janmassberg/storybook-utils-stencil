@@ -1,4 +1,4 @@
-import type { CodeGeneratorArgs } from "./types";
+import type { CodeGeneratorArgs, CodeGeneratorFn } from "./types";
 import {
     ArgEntries,
     filterHtmlAttributes,
@@ -18,7 +18,7 @@ const transformVueAttributes = (attributes: ArgEntries) => {
     });
 };
 
-export const generateSourceCodeVue = ({
+export const generateSourceVueComponent: CodeGeneratorFn = ({
     component,
     args,
 }: CodeGeneratorArgs): string => {
