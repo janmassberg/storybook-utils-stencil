@@ -1,3 +1,5 @@
+[![Node version](https://img.shields.io/node/v/npm.svg?style=flat)](https://nodejs.org/download/)
+
 # Storybook Utils
 
 **Utilities, code generators and components for Storybook-based library documentation**
