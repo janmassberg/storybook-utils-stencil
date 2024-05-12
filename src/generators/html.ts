@@ -1,11 +1,11 @@
 import {
-    ArgsType,
+    ArgEntries,
     filterHtmlAttributes,
     formatHtml,
     toKebabCase,
 } from "../utils";
 
-const generateHtmlAttributes = (attributes: ArgsType): string => {
+const generateHtmlAttributes = (attributes: ArgEntries): string => {
     return attributes
         .map(([key, value]) => {
             key = toKebabCase(key);

@@ -1,5 +1,5 @@
 import {
-    ArgsType,
+    ArgEntries,
     filterEventHandlers,
     filterJsxProperties,
     formatHtml,
@@ -8,8 +8,8 @@ import {
 
 export const generateJavascriptCode = (
     component: string,
-    props: ArgsType,
-    events: ArgsType
+    props: ArgEntries,
+    events: ArgEntries
 ): string => {
     if (props.length === 0 && events.length === 0) {
         return "";

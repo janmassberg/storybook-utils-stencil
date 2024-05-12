@@ -140,7 +140,7 @@ export const AllFrameworks = {
             ],
             React: [
                 {
-                    language: "typescript",
+                    language: "jsx",
                     code: generateSourceCodeReact("my-component", testArgs),
                 },
             ],

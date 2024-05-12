@@ -3,7 +3,7 @@ import {
     generateSourceCodeHtml,
     generateSourceCodeJavascript,
 } from "../../src";
-import { testArgs } from "../../src/test-utils/testArgs";
+import { testArgsButton } from "../../src/test-utils/testArgs";
 
 export const usageExample = `
 import {
@@ -11,19 +11,16 @@ import {
     generateSourceCodeJavascript,
 } from "@jmassberg/storybook-utils";\n
 const args = {
-    testFalse: false,
-    testTrue: true,
-    testString: "test-string",
-    testNumber: 12345,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
+    required: true,
+    variant: "primary",
+    onClick: (event) => {
+        // Handle click event
+        console.log(event.target);
     },
-    onTestEvent: testArgEventHandler,
-    _slot: "Test children",
+    _slot: "Label",
 };\n
-const htmlCode = generateSourceCodeHtml("my-component", args);
-const jsCode = generateSourceCodeJavascript("my-component", args);
+const htmlCode = generateSourceCodeHtml("ui-button", args);
+const jsCode = generateSourceCodeJavascript("ui-button", args);
 `;
 
 <Meta title="Code Generators/HTML" />
@@ -47,7 +44,7 @@ Use `generateSourceCodeHtml` to generate the HTML source.
     dark
     language="html"
     type="code"
-    code={generateSourceCodeHtml("my-component", testArgs)}
+    code={generateSourceCodeHtml("ui-button", testArgsButton)}
 />
 
 #### Javascript
@@ -57,5 +54,5 @@ Use `generateSourceCodeJavascript` to generate the JS script source.
 <Source
     dark
     language="html"
-    code={generateSourceCodeJavascript("my-component", testArgs)}
+    code={generateSourceCodeJavascript("ui-button", testArgsButton)}
 />

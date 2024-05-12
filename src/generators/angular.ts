@@ -1,17 +1,17 @@
 import {
-    ArgsType,
-    formatJsx,
+    ArgEntries,
     filterEventHandlers,
     filterHtmlAttributes,
     filterJsxProperties,
     formatHtml,
+    formatJsx,
     objectToString,
     toKebabCase,
     toUpperCamelCase,
     ucFirst,
 } from "../utils";
 
-const transformAngularAttributes = (attributes: ArgsType) => {
+const transformAngularAttributes = (attributes: ArgEntries) => {
     return attributes.map(([key, value]) => {
         return `${toKebabCase(key)}="${value}"`;
     });

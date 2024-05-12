@@ -13,7 +13,18 @@ export const testArgs = {
         // do nothing
     },
     onTestEvent: (event: Event): void => {
+        // Handle event
         console.log(event.type);
     },
     _slot: "Test children",
+};
+
+export const testArgsButton = {
+    required: true,
+    variant: "primary",
+    onClick: (event: Event) => {
+        // Handle click event
+        console.log(event.target);
+    },
+    _slot: "Label",
 };

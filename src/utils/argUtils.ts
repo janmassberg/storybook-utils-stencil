@@ -1,8 +1,10 @@
+import { lcFirst } from "./stringUtils";
+
 export type ArgEntry = [string, any];
-export type ArgsType = ArgEntry[];
+export type ArgEntries = ArgEntry[];
 
 export interface ArgsFilter {
-    (args: any): ArgsType;
+    (args: any): ArgEntries;
 }
 
 /** @private */
@@ -27,7 +29,7 @@ const isHiddenArg = ([key]: ArgEntry): boolean => {
 
 /**
  * Checks if an argument is an event handler
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
 export const isEventArg = ([key, value]: ArgEntry): boolean => {
     return isEventHandlerKey(key) && isFunctionValue(value);
@@ -35,7 +37,7 @@ export const isEventArg = ([key, value]: ArgEntry): boolean => {
 
 /**
  * Checks if an argument is a valid HTML attribute
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
 export const isHtmlArg = ([key, value]: ArgEntry): boolean => {
     return (
@@ -50,7 +52,7 @@ export const isHtmlArg = ([key, value]: ArgEntry): boolean => {
 
 /**
  * Checks if an argument is a valid JSX property
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
 export const isJsxArg = ([key, value]: ArgEntry): boolean => {
     return (
@@ -64,24 +66,28 @@ export const isJsxArg = ([key, value]: ArgEntry): boolean => {
 
 /**
  * Filters args with valid HTML attributes only
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
-export const filterHtmlAttributes: ArgsFilter = (args: any): ArgsType => {
+export const filterHtmlAttributes: ArgsFilter = (args: any): ArgEntries => {
     return Object.entries(args).filter(isHtmlArg);
 };
 
 /**
  * Filters args with valid JSX properties only
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
-export const filterJsxProperties: ArgsFilter = (args: any): ArgsType => {
+export const filterJsxProperties: ArgsFilter = (args: any): ArgEntries => {
     return Object.entries(args).filter(isJsxArg);
 };
 
 /**
  * Filters args with valid event handlers only
- * @param args {ArgsType}
+ * @param args {ArgEntries}
  */
-export const filterEventHandlers: ArgsFilter = (args: any): ArgsType => {
-    return Object.entries(args).filter(isEventArg);
+export const filterEventHandlers: ArgsFilter = (args: any): ArgEntries => {
+    return Object.entries(args).filter(isEventArg).map(([key, value]) => [getEventNameFromHandler(key), value]);
+};
+
+export const getEventNameFromHandler = (handlerName: string): string => {
+    return lcFirst(handlerName.replace(/^(on|@)/, ""));
 };

@@ -1,28 +1,18 @@
 import { Meta, Source } from "@storybook/blocks";
-import {
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
-    generateSourceCodeHtml,
-    generateSourceCodeJavascript,
-    generateSourceCodeReact,
-} from "../../src";
-import { testArgs } from "../../src/test-utils/testArgs";
+import { generateSourceCodeReact } from "../../src";
+import { testArgsButton } from "../../src/test-utils/testArgs";
 
 export const usageExample = `
 import { generateSourceCodeReact } from "@jmassberg/storybook-utils";\n
-const args = {
-    testFalse: false,
-    testTrue: true,
-    testString: "test-string",
-    testNumber: 12345,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
+const reactCode = generateSourceCodeReact("ui-button", {
+    required: true,
+    variant: "primary",
+    onClick: (event) => {
+        // Handle click event
+        console.log(event.target);
     },
-    onTestEvent: testArgEventHandler,
-    _slot: "Test children",
-};\n
-const reactCode = generateSourceCodeReact("my-component", args);
+    _slot: "Label",
+});
 `;
 
 <Meta title="Code Generators/React" />
@@ -40,5 +30,5 @@ Use `generateSourceCodeReact` to generate an integration example for React.
 <Source
     dark
     language="jsx"
-    code={generateSourceCodeReact("my-component", testArgs)}
+    code={generateSourceCodeReact("ui-button", testArgsButton)}
 />

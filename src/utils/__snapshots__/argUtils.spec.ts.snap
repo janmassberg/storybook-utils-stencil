@@ -3,7 +3,7 @@
 exports[`filterEventHandlers should return an array of key/value pairs with valid event handlers 1`] = `
 Array [
   Array [
-    "onTestEvent",
+    "testEvent",
     [Function],
   ],
 ]

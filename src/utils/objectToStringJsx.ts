@@ -9,7 +9,7 @@ export const objectToStringJsx = (value: any): string => {
         return `"${value}"`;
     }
     if (typeof value === "function") {
-        return value.toString();
+        return `{${value.toString()}}`;
     }
     return `{${objectToString(value)}}`;
 };

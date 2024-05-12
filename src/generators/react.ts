@@ -1,5 +1,5 @@
 import {
-    ArgsType,
+    ArgEntries,
     formatJsx,
     filterEventHandlers,
     filterHtmlAttributes,
@@ -11,7 +11,7 @@ import {
     ucFirst,
 } from "../utils";
 
-const transformReactAttributes = (attributes: ArgsType) => {
+const transformReactAttributes = (attributes: ArgEntries) => {
     return attributes
         .map(([key, value]) => {
             key = toLowerCamelCase(key);
@@ -67,6 +67,29 @@ const transformChildComponents = (str: string): string => {
 };
 
 export const generateSourceCodeReact = (
+    component: string,
+    args: Record<string, unknown>
+) => {
+    const attribs = filterHtmlAttributes(args);
+    const props = filterJsxProperties(args);
+    const events = filterEventHandlers(args);
+    const slot = typeof args._slot === "string" ? args._slot : "";
+
+    const reactComponentName = toUpperCamelCase(component);
+    const reactAttributes = transformReactAttributes(attribs);
+    const reactProps = transformReactAttributes(props);
+    const reactEvents = events.map(
+        ([key, value]) => `on${ucFirst(key)}={${objectToString(value)}}\n`
+    );
+    const reactComponentJsx = `<${reactComponentName}
+        ${reactAttributes.join(" ")}
+        ${reactProps.join(" ")}
+        ${reactEvents.join(" ")}
+        >${transformChildComponents(slot)}</${reactComponentName}>`;
+    return formatJsx(reactComponentJsx).replace(/;\s+?$/, "");
+}
+
+export const generateSourceCodeReactComponent = (
     component: string,
     args: Record<string, unknown>
 ) => {

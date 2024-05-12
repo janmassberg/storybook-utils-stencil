@@ -1,0 +1,34 @@
+import { Meta, Source } from "@storybook/blocks";
+import { generateSourceCodeVue } from "../../src";
+import { testArgsButton } from "../../src/test-utils/testArgs";
+
+export const usageExample = `
+import { generateSourceCodeVue } from "@jmassberg/storybook-utils";\n
+const vueCode = generateSourceCodeVue("ui-button", {
+    required: true,
+    variant: "primary",
+    onClick: (event) => {
+        // Handle click event
+        console.log(event.target);
+    },
+    _slot: "Label",
+});
+`;
+
+<Meta title="Code Generators/Vue" />
+
+# Vue Source Code Generator
+
+## Usage
+
+Use `generateSourceCodeVue` to generate an integration example for Vue.
+
+<Source code={usageExample}/>
+
+## Output
+
+<Source
+    dark
+    language="html"
+    code={generateSourceCodeVue("ui-button", testArgsButton)}
+/>

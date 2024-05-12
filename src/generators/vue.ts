@@ -1,5 +1,5 @@
 import {
-    ArgsType,
+    ArgEntries,
     filterHtmlAttributes,
     filterEventHandlers,
     filterJsxProperties,
@@ -11,7 +11,7 @@ import {
     ucFirst,
 } from "../utils";
 
-const transformVueAttributes = (attributes: ArgsType) => {
+const transformVueAttributes = (attributes: ArgEntries) => {
     return attributes.map(([key, value]) => {
         return `${toKebabCase(key)}="${value}"`;
     });
@@ -28,7 +28,7 @@ export const generateSourceCodeVue = (component: string, args: any) => {
     const vueProps = props.map(
         ([key]) => `.${toLowerCamelCase(key)}="${toLowerCamelCase(key)}"\n`
     );
-    const vueEvents = events.map(([key]) => `@${key}="on${ucFirst(key)}"\n`);
+    const vueEvents = events.map(([key]) => `@${key}="on${ucFirst(key)}"`);
     const vueComponentJsx = `<${vueComponentName}
         ${vueAttributes.join("\n")}
         ${vueProps.join("\n")}
