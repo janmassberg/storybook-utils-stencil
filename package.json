@@ -25,7 +25,7 @@
     "storybook": "storybook dev -p 6006 --debug-webpack",
     "eslint": "eslint src/**/*{.ts,.tsx}",
     "eslint:fix": "npm run eslint -- --fix",
-    "prettier": "prettier \"./{src/**/*{.scss,.ts,.tsx},stories/**/*{.mdx,.js,.ts},*.js,*.ts,.react/package.json}\"",
+    "prettier": "prettier \"./{*.js,*.ts,src/**/*{.scss,.ts,.tsx},stories/**/*{.mdx,.js,.ts}}\"",
     "prettier:check": "npm run prettier -- --check",
     "prettier:fix": "npm run prettier -- --write",
     "lint": "npm run eslint && npm run prettier",
