@@ -5,22 +5,16 @@ import {
 } from "./generator.templates";
 import { generateSourceHtmlMarkup, generateSourceHtmlScript } from "../../src";
 
-export const usageExample = `
-import {
-    generateSourceHtmlMarkup,
-    generateSourceHtmlScript,
-} from "@jmassberg/storybook-utils";\n
-const htmlCode = generateSourceHtmlMarkup("ui-button", ${generatorIntegrationSourceArgs}});\n
-const jsCode = generateSourceHtmlScript("ui-button", ${generatorIntegrationSourceArgs}});\n
-`;
-
 <Meta title="Code Generators/HTML" />
 
 # HTML Source Generators
 
-## HTML Markup
+- [generateSourceHtmlMarkup](#generatesourcehtmlmarkup)
+- [generateSourceHtmlScript](#generatesourcehtmlscript)
 
-Use `generateSourceHtmlMarkup` to generate the HTML source.
+<br />
+
+## `generateSourceHtmlMarkup`
 
 <Source
     code={`
@@ -38,9 +32,9 @@ const htmlSource = generateSourceHtmlMarkup(${generatorIntegrationSourceArgs});
     code={generateSourceHtmlMarkup(generatorIntegrationArgs)}
 />
 
-## HTML Script Tag
+<br />
 
-Use `generateSourceHtmlScript` to generate the JS script source.
+## `generateSourceHtmlScript`
 
 <Source
     code={`
