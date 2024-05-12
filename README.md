@@ -1,52 +1,94 @@
-# @jmassberg/storybook-utils
+# Storybook Utils
 
-Utilities, code generators and components for storybook based library documentation
+**Utilities, code generators and components for Storybook-based library documentation**
 
-## Requirements
+This library is designed for use in projects that use Storybook for documentation.
 
-This library is meant to be used in storybook projects.
-The provided utilities and components depend on modules that are usually installed with storybook.
+- [Installation](#installation)
+- [Source Code Generators](#Source-code-generators)
+- [Storybook Blocks](#storybook-blocks)
+
+
+The provided components depend on modules that are typically installed with Storybook.
 
 ## Installation
 
 ```shell
-npm i @jmassberg/storybook-utils
+npm i -D @jmassberg/storybook-utils
 ```
 
-## Utilities
+## Source Code Generators
 
-#### Usage example: generateSourceCode
+### Available Generators
+
+- `generateSourceAngularHtml: CodeGeneratorFn`
+- `generateSourceAngularComponent: CodeGeneratorFn`
+- `generateSourceHtmlMarkup: CodeGeneratorFn`
+- `generateSourceHtmlScript: CodeGeneratorFn`
+- `generateSourceReactFC: CodeGeneratorFn`
+- `generateSourceReactJsx: CodeGeneratorFn`
+- `generateSourceVueComponent: CodeGeneratorFn`
+
+### Interface
+
+```typescript
+interface CodeGeneratorFn {
+    (args: CodeGeneratorArgs): string;
+}
+
+interface CodeGeneratorArgs {
+    component: string;
+    args: Record<string, unknown>;
+}
+```
+
+### Example
+
+#### Generate React JSX Source Code
 
 ```jsx
-import {
-    generateSourceHtmlMarkup,
-    generateSourceHtmlScript,
-    generateSourceReactJsx,
-} from "@jmassberg/storybook-utils";
+import { generateSourceReactJsx } from "@jmassberg/storybook-utils";
 
-const args = {
-    testFalse: false,
-    testTrue: true,
-    testString: "test-string",
-    testNumber: 12345,
-    testArray: [1, 2, 3],
-    testObject: {
-        foo: "bar",
-    },
-    onTestEvent: testArgEventHandler,
-    _slot: "Test children",
-};
-
-const htmlCode = generateSourceHtmlMarkup("my-component", args);
-const jsCode = generateSourceHtmlScript("my-component", args);
-const reactCode = generateSourceReactJsx("my-component", args);
+const reactJsx = generateSourceReactJsx({
+    component: "my-component",
+    args: {
+        _slot: "Label",
+        variant: "primary",
+        required: true,
+        onChange: (event) => {
+            // Handle event
+        }
+    }
+});
 ```
 
-## Components
+## Storybook Blocks
 
-#### Usage example: SourceCode
+### Available Components
 
-In your MDX story:
+- `FrameworkSource`
+- `SourceCode`
+
+#### SourceCode
+
+```jsx
+import { FrameworkSource } from "@jmassberg/storybook-utils";
+
+<FrameworkSource
+    theme="dark"
+    component="my-component"
+    args={{
+        _slot: "Label",
+        variant: "primary",
+        required: true,
+        onChange: (event) => {
+            // Handle event
+        }
+    }}
+/>
+```
+
+#### SourceCode
 
 ```jsx
 import { SourceCode } from "@jmassberg/storybook-utils";
@@ -54,13 +96,13 @@ import { SourceCode } from "@jmassberg/storybook-utils";
 <SourceCode
     theme="dark"
     codeBlocks={{
-        html: [
+        HTML: [
             {
                 language: "html",
                 code: "<my-component id='test-id'></my-component>"
             }
         ],
-        javascript: [
+        Javascript: [
             {
                 language: "javascript",
                 code: "const element = document.querySelector('my-component#test-id');"
