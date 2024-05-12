@@ -3,7 +3,7 @@ module.exports = {
     env: {
         jest: true,
     },
-    parser: "@typescript-eslint/parser",
+    // parser: "@typescript-eslint/parser",
     parserOptions: {
         project: "./tsconfig.eslint.json",
         ecmaFeatures: {
@@ -30,4 +30,14 @@ module.exports = {
         ],
         "react/jsx-no-bind": 1,
     },
+    overrides: [
+        {
+            files: "stories/**",
+            parser: "@babel/eslint-parser",
+            rules: {
+                "react/prop-types": 0,
+                "@typescript-eslint/no-unused-vars": 0,
+            },
+        },
+    ],
 };

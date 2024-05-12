@@ -2,7 +2,10 @@ import {
     generateSourceCodeReact,
     generateSourceCodeReactComponent,
 } from "./react";
-import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
+import {
+    testArgsComponentGenerator,
+    testCopmonentSlot,
+} from "../test-utils/testArgs";
 
 describe("generateSourceCodeReact", () => {
     it("should generate valid formatted react JSX code with args", () => {
@@ -17,7 +20,7 @@ describe("generateSourceCodeReact", () => {
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
-                }
+                },
             })
         ).toMatchSnapshot();
     });
@@ -36,7 +39,7 @@ describe("generateSourceCodeReactComponent", () => {
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
-                }
+                },
             })
         ).toMatchSnapshot();
     });

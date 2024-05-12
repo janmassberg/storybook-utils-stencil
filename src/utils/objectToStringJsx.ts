@@ -4,7 +4,7 @@ import { objectToString } from "./objectToString";
  * Converts any object to a jsx string.
  * @param value {string|number|boolean|function|{}}
  */
-export const objectToStringJsx = (value: any): string => {
+export const objectToStringJsx = (value: unknown): string => {
     if (typeof value === "string") {
         return `"${value}"`;
     }

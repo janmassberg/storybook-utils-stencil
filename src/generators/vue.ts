@@ -41,7 +41,9 @@ export const generateSourceCodeVue = ({
 
     const vueEventHandlers = events.map(
         ([key, value]) =>
-            `on${ucFirst(key)}: ${value.toString().replace(/\n/g, "\n")}`
+            `on${ucFirst(key)}: ${(value as string)
+                .toString()
+                .replace(/\n/g, "\n")}`
     );
 
     const vueConstants = props.map(([key, value]) => {

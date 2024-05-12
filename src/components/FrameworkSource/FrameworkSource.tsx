@@ -1,6 +1,7 @@
 import React, { FC, useMemo } from "react";
 import { SourceCode, SourceCodeBlocks } from "../SourceCode";
 import {
+    CodeGeneratorArgs,
     generateSourceCodeAngularComponent,
     generateSourceCodeAngularHtml,
     generateSourceCodeHtml,
@@ -12,7 +13,7 @@ import {
 
 export interface FrameworkSourceProps {
     component: string;
-    props: Record<string, any>;
+    args: Record<string, unknown>;
     theme: "dark" | "light";
 }
 
@@ -22,49 +23,53 @@ export interface FrameworkSourceProps {
  */
 export const FrameworkSource: FC<FrameworkSourceProps> = ({
     component,
-    props,
+    args,
     theme,
 }: FrameworkSourceProps) => {
     const codeBlocks = useMemo<SourceCodeBlocks>(() => {
+        const generatorArgs: CodeGeneratorArgs = {
+            component,
+            args,
+        };
         return {
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceCodeHtml(component, props),
+                    code: generateSourceCodeHtml(generatorArgs),
                 },
                 {
                     language: "html",
-                    code: generateSourceCodeJavascript(component, props),
+                    code: generateSourceCodeJavascript(generatorArgs),
                 },
             ],
             Angular: [
                 {
                     language: "html",
-                    code: generateSourceCodeAngularHtml(component, props),
+                    code: generateSourceCodeAngularHtml(generatorArgs),
                 },
                 {
                     language: "typescript",
-                    code: generateSourceCodeAngularComponent(component, props),
+                    code: generateSourceCodeAngularComponent(generatorArgs),
                 },
             ],
             React: [
                 {
                     language: "jsx",
-                    code: generateSourceCodeReact(component, props),
+                    code: generateSourceCodeReact(generatorArgs),
                 },
                 {
                     language: "typescript",
-                    code: generateSourceCodeReactComponent(component, props),
+                    code: generateSourceCodeReactComponent(generatorArgs),
                 },
             ],
             Vue: [
                 {
                     language: "html",
-                    code: generateSourceCodeVue(component, props),
+                    code: generateSourceCodeVue(generatorArgs),
                 },
             ],
         };
-    }, [props, component]);
+    }, [args, component]);
 
     return <SourceCode theme={theme} codeBlocks={codeBlocks} />;
 };

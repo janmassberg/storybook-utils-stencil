@@ -1,19 +1,19 @@
 import { lcFirst } from "./stringUtils";
 
-export type ArgEntry = [string, any];
+export type ArgEntry = [string, unknown];
 export type ArgEntries = ArgEntry[];
 
 export interface ArgsFilter {
-    (args: any): ArgEntries;
+    (args: Record<string, unknown>): ArgEntries;
 }
 
 /** @private */
-const isFunctionValue = (value: any): boolean => {
+const isFunctionValue = (value: unknown): boolean => {
     return typeof value === "function";
 };
 
 /** @private */
-const isObjectValue = (value: any): boolean => {
+const isObjectValue = (value: unknown): boolean => {
     return typeof value === "object" && value !== null;
 };
 
@@ -68,7 +68,9 @@ export const isJsxArg = ([key, value]: ArgEntry): boolean => {
  * Filters args with valid HTML attributes only
  * @param args {ArgEntries}
  */
-export const filterHtmlAttributes: ArgsFilter = (args: any): ArgEntries => {
+export const filterHtmlAttributes: ArgsFilter = (
+    args: Record<string, unknown>
+): ArgEntries => {
     return Object.entries(args).filter(isHtmlArg);
 };
 
@@ -76,7 +78,9 @@ export const filterHtmlAttributes: ArgsFilter = (args: any): ArgEntries => {
  * Filters args with valid JSX properties only
  * @param args {ArgEntries}
  */
-export const filterJsxProperties: ArgsFilter = (args: any): ArgEntries => {
+export const filterJsxProperties: ArgsFilter = (
+    args: Record<string, unknown>
+): ArgEntries => {
     return Object.entries(args).filter(isJsxArg);
 };
 
@@ -84,7 +88,9 @@ export const filterJsxProperties: ArgsFilter = (args: any): ArgEntries => {
  * Filters args with valid event handlers only
  * @param args {ArgEntries}
  */
-export const filterEventHandlers: ArgsFilter = (args: any): ArgEntries => {
+export const filterEventHandlers: ArgsFilter = (
+    args: Record<string, unknown>
+): ArgEntries => {
     return Object.entries(args)
         .filter(isEventArg)
         .map(([key, value]) => [getEventNameFromHandler(key), value]);

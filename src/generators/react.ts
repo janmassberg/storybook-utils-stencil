@@ -38,7 +38,7 @@ const transformReactAttributesString = (str: string): string => {
 };
 
 const transformChildComponents = (str: string | undefined): string => {
-    if (!str) {
+    if (typeof str === "undefined" || !str) {
         return "";
     }
     const matches = str.match(/<([a-z-]+-[a-z-]+)/g);
@@ -54,8 +54,8 @@ const transformChildComponents = (str: string | undefined): string => {
     tagNames.sort((a, b) => b.length - a.length);
     tagNames.forEach((tagName) => {
         const reactTagName = toUpperCamelCase(tagName);
-        str = str!.replace(new RegExp(tagName, "g"), reactTagName);
-        str = str!.replace(
+        str = (str as string).replace(new RegExp(tagName, "g"), reactTagName);
+        str = str.replace(
             new RegExp(`<${reactTagName}([^/>]+)`, "g"),
             (_, attributes) => {
                 return `<${reactTagName}${transformReactAttributesString(
@@ -117,7 +117,7 @@ export const generateSourceCodeReactComponent = ({
         ([key, value]) => `const on${ucFirst(
             key
         )} = React.useCallback((event: Event) => {
-            ${value
+            ${(value as string)
                 .toString()
                 .replace(/^[^{]+{/, "")
                 .replace(/}$/, "")}

@@ -13,7 +13,7 @@ describe("generateSourceCodeJavascript", () => {
                     testFalse: false,
                     testNull: null,
                     testUndefined: undefined,
-                }
+                },
             })
         ).toEqual("");
     });

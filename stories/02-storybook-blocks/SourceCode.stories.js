@@ -7,10 +7,6 @@ import {
 } from "../../src";
 import { testArgs } from "../../src/test-utils/testArgs";
 
-const Template = ({ theme = "dark", codeBlocks }) => {
-    return <SourceCode theme={theme} codeBlocks={codeBlocks} />;
-};
-
 export default {
     title: "Storybook Blocks/SourceCode",
     component: SourceCode,

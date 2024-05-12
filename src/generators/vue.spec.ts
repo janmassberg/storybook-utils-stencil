@@ -1,5 +1,8 @@
 import { generateSourceCodeVue } from "./vue";
-import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
+import {
+    testArgsComponentGenerator,
+    testCopmonentSlot,
+} from "../test-utils/testArgs";
 
 describe("generateSourceCodeVue", () => {
     it("should generate valid formatted vue JSX code with args", () => {
@@ -14,7 +17,7 @@ describe("generateSourceCodeVue", () => {
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
-                }
+                },
             })
         ).toMatchSnapshot();
     });

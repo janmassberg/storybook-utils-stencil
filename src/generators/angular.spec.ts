@@ -2,7 +2,10 @@ import {
     generateSourceCodeAngularComponent,
     generateSourceCodeAngularHtml,
 } from "./angular";
-import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
+import {
+    testArgsComponentGenerator,
+    testCopmonentSlot,
+} from "../test-utils/testArgs";
 
 describe("generateSourceCodeAngularComponent", () => {
     it("should generate valid formatted angular component source code", () => {
@@ -17,7 +20,7 @@ describe("generateSourceCodeAngularComponent", () => {
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
-                }
+                },
             })
         ).toMatchSnapshot();
     });
@@ -36,7 +39,7 @@ describe("generateSourceCodeAngularHtml", () => {
                 ...testArgsComponentGenerator,
                 args: {
                     _slot: testCopmonentSlot,
-                }
+                },
             })
         ).toMatchSnapshot();
     });

@@ -1,13 +1,7 @@
 import * as React from "react";
 import { storyWrapper } from "../utils";
 import { FrameworkSource } from "../../src";
-import { testArgs } from "../../src/test-utils/testArgs";
-
-const Template = ({ theme = "dark", component, props }) => {
-    return (
-        <FrameworkSource theme={theme} component={component} props={props} />
-    );
-};
+import { testArgsComponentGenerator } from "../../src/test-utils/testArgs";
 
 export default {
     title: "Storybook Blocks/FrameworkSource",
@@ -21,17 +15,16 @@ export default {
             },
         },
     },
-    args: {
-        theme: "dark",
-        component: "my-component",
-        props: testArgs,
-    },
+    args: testArgsComponentGenerator,
 };
 
 export const Default = {
-    args: {
-        component: "my-component",
-        props: testArgs,
+    parameters: {
+        docs: {
+            description: {
+                story: "By default, the component is styled based on the `dark` theme",
+            },
+        },
     },
 };
 
@@ -39,7 +32,7 @@ export const LightTheme = {
     parameters: {
         docs: {
             description: {
-                story: "",
+                story: 'Set `theme="light"` if you prefer a light background',
             },
         },
     },
