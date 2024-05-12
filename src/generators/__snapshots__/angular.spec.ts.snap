@@ -55,7 +55,7 @@ exports[`generateSourceCodeAngularHtml should generate valid formatted angular h
 "<my-component>
   <my-child-component foo-bar="foo">
     <my-nested-child-component bar-foo="bar">
-      <span class="test-class">Test children</span>
+      <span class="test-class">Label</span>
     </my-nested-child-component>
   </my-child-component>
 </my-component>

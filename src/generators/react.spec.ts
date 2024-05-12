@@ -2,40 +2,41 @@ import {
     generateSourceCodeReact,
     generateSourceCodeReactComponent,
 } from "./react";
-import { testArgs } from "../test-utils/testArgs";
-
-const testSlot = `<my-child-component foo-bar="foo">
-    <my-nested-child-component bar-foo="bar">
-    <span class="test-class">Test children</span></my-nested-child-component>
-</my-child-component>`;
+import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
 
 describe("generateSourceCodeReact", () => {
-    it("should generate valid formatted react JSX code with props", () => {
+    it("should generate valid formatted react JSX code with args", () => {
         expect(
-            generateSourceCodeReact("my-component", testArgs)
+            generateSourceCodeReact(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted react JSX code with children", () => {
         expect(
-            generateSourceCodeReact("my-component", {
-                _slot: testSlot,
+            generateSourceCodeReact({
+                ...testArgsComponentGenerator,
+                args: {
+                    _slot: testCopmonentSlot,
+                }
             })
         ).toMatchSnapshot();
     });
 });
 
 describe("generateSourceCodeReactComponent", () => {
-    it("should generate the source code for a basic integration with props", () => {
+    it("should generate the source code for a basic integration with args", () => {
         expect(
-            generateSourceCodeReactComponent("my-component", testArgs)
+            generateSourceCodeReactComponent(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate the source code for a basic integration with children", () => {
         expect(
-            generateSourceCodeReactComponent("my-component", {
-                _slot: testSlot,
+            generateSourceCodeReactComponent({
+                ...testArgsComponentGenerator,
+                args: {
+                    _slot: testCopmonentSlot,
+                }
             })
         ).toMatchSnapshot();
     });

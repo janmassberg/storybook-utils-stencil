@@ -1,3 +1,4 @@
+import type { CodeGeneratorArgs } from "./types";
 import {
     ArgEntries,
     filterHtmlAttributes,
@@ -17,11 +18,14 @@ const transformVueAttributes = (attributes: ArgEntries) => {
     });
 };
 
-export const generateSourceCodeVue = (component: string, args: any) => {
+export const generateSourceCodeVue = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = args._slot || "";
+    const slot = args?._slot || "";
 
     const vueComponentName = toKebabCase(component);
     const vueAttributes = transformVueAttributes(attribs);
@@ -81,6 +85,5 @@ ${vueComponentMethods.replace(/^\n(.*)/, "$1")}
 ${formatJsx(vueComponentScriptSrc.replace(/^\n/, ""))}
 </script>
 `;
-    // return vueComponentSource;
     return formatHtml(vueComponentSource);
 };

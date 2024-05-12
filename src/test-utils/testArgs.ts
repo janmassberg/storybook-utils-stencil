@@ -28,3 +28,12 @@ export const testArgsButton = {
     },
     _slot: "Label",
 };
+
+export const testArgsComponentGenerator = {
+    component: "my-component",
+    args: testArgs,
+};
+
+export const testCopmonentSlot = `<my-child-component foo-bar="foo">
+<my-nested-child-component bar-foo="bar"><span class="test-class">Label</span></my-nested-child-component>
+</my-child-component>`;

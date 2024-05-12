@@ -1,3 +1,4 @@
+import type { CodeGeneratorArgs } from "./types";
 import {
     ArgEntries,
     filterEventHandlers,
@@ -6,7 +7,7 @@ import {
     objectToString,
 } from "../utils";
 
-export const generateJavascriptCode = (
+const generateJavascriptCode = (
     component: string,
     props: ArgEntries,
     events: ArgEntries
@@ -41,10 +42,10 @@ export const generateJavascriptCode = (
     `;
 };
 
-export const generateSourceCodeJavascript = (
-    component: string,
-    args: any
-): string => {
+export const generateSourceCodeJavascript = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const eventHandlers = filterEventHandlers(args);
     const jsxProps = filterJsxProperties(args);
     const jsCode = generateJavascriptCode(component, jsxProps, eventHandlers);

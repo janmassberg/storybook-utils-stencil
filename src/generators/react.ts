@@ -1,3 +1,4 @@
+import type { CodeGeneratorArgs } from "./types";
 import {
     ArgEntries,
     formatJsx,
@@ -36,7 +37,7 @@ const transformReactAttributesString = (str: string): string => {
     );
 };
 
-const transformChildComponents = (str: string): string => {
+const transformChildComponents = (str: string | undefined): string => {
     if (!str) {
         return "";
     }
@@ -53,8 +54,8 @@ const transformChildComponents = (str: string): string => {
     tagNames.sort((a, b) => b.length - a.length);
     tagNames.forEach((tagName) => {
         const reactTagName = toUpperCamelCase(tagName);
-        str = str.replace(new RegExp(tagName, "g"), reactTagName);
-        str = str.replace(
+        str = str!.replace(new RegExp(tagName, "g"), reactTagName);
+        str = str!.replace(
             new RegExp(`<${reactTagName}([^/>]+)`, "g"),
             (_, attributes) => {
                 return `<${reactTagName}${transformReactAttributesString(
@@ -66,14 +67,14 @@ const transformChildComponents = (str: string): string => {
     return str.replace(/(\s)class=/gi, "$1className=");
 };
 
-export const generateSourceCodeReact = (
-    component: string,
-    args: Record<string, unknown>
-) => {
+export const generateSourceCodeReact = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = typeof args._slot === "string" ? args._slot : "";
+    const slot = args?._slot || "";
 
     const reactComponentName = toUpperCamelCase(component);
     const reactAttributes = transformReactAttributes(attribs);
@@ -85,18 +86,18 @@ export const generateSourceCodeReact = (
         ${reactAttributes.join(" ")}
         ${reactProps.join(" ")}
         ${reactEvents.join(" ")}
-        >${transformChildComponents(slot)}</${reactComponentName}>`;
+        >${transformChildComponents(slot as string)}</${reactComponentName}>`;
     return formatJsx(reactComponentJsx).replace(/;\s+?$/, "");
 };
 
-export const generateSourceCodeReactComponent = (
-    component: string,
-    args: Record<string, unknown>
-) => {
+export const generateSourceCodeReactComponent = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = typeof args._slot === "string" ? args._slot : "";
+    const slot = args?._slot || "";
 
     const reactComponentName = toUpperCamelCase(component);
     const reactAttributes = transformReactAttributes(attribs);
@@ -110,7 +111,7 @@ export const generateSourceCodeReactComponent = (
         ${reactAttributes.join(" ")}
         ${reactProps.join(" ")}
         ${reactEvents.join(" ")}
-        >${transformChildComponents(slot)}</${reactComponentName}>`;
+        >${transformChildComponents(slot as string)}</${reactComponentName}>`;
 
     const reactEventHandlers = events.map(
         ([key, value]) => `const on${ucFirst(

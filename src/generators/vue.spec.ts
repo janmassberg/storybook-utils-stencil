@@ -1,20 +1,20 @@
 import { generateSourceCodeVue } from "./vue";
-import { testArgs } from "../test-utils/testArgs";
+import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
 
 describe("generateSourceCodeVue", () => {
-    it("should generate valid formatted vue JSX code with props", () => {
+    it("should generate valid formatted vue JSX code with args", () => {
         expect(
-            generateSourceCodeVue("my-component", testArgs)
+            generateSourceCodeVue(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted vue JSX code with children", () => {
         expect(
-            generateSourceCodeVue("my-component", {
-                _slot: `<my-child-component foo-bar="foo">
-    <my-nested-child-component bar-foo="bar">
-    <span class="test-class">Test children</span></my-nested-child-component>
-</my-child-component>`,
+            generateSourceCodeVue({
+                ...testArgsComponentGenerator,
+                args: {
+                    _slot: testCopmonentSlot,
+                }
             })
         ).toMatchSnapshot();
     });

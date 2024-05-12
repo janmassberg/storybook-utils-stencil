@@ -1,16 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`generateSourceCodeReact should generate valid formatted react JSX code with children 1`] = `
-"<MyComponent>
-  <MyChildComponent fooBar="foo">
-    <MyNestedChildComponent barFoo="bar">
-      <span className="test-class">Test children</span>
-    </MyNestedChildComponent>
-  </MyChildComponent>
-</MyComponent>"
-`;
-
-exports[`generateSourceCodeReact should generate valid formatted react JSX code with props 1`] = `
+exports[`generateSourceCodeReact should generate valid formatted react JSX code with args 1`] = `
 "<MyComponent
   testTrue
   testString="test-string"
@@ -29,24 +19,17 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
 </MyComponent>"
 `;
 
-exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with children 1`] = `
-"import * as React from "react";
-
-const MyComponentExample: React.FC = () => {
-  return (
-    <MyComponent>
-      <MyChildComponent fooBar="foo">
-        <MyNestedChildComponent barFoo="bar">
-          <span className="test-class">Test children</span>
-        </MyNestedChildComponent>
-      </MyChildComponent>
-    </MyComponent>
-  );
-};
-"
+exports[`generateSourceCodeReact should generate valid formatted react JSX code with children 1`] = `
+"<MyComponent>
+  <MyChildComponent fooBar="foo">
+    <MyNestedChildComponent barFoo="bar">
+      <span className="test-class">Label</span>
+    </MyNestedChildComponent>
+  </MyChildComponent>
+</MyComponent>"
 `;
 
-exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with props 1`] = `
+exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with args 1`] = `
 "import * as React from "react";
 
 const MyComponentExample: React.FC = () => {
@@ -73,6 +56,23 @@ const MyComponentExample: React.FC = () => {
       onTestEvent={onTestEvent}
     >
       Test children
+    </MyComponent>
+  );
+};
+"
+`;
+
+exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with children 1`] = `
+"import * as React from "react";
+
+const MyComponentExample: React.FC = () => {
+  return (
+    <MyComponent>
+      <MyChildComponent fooBar="foo">
+        <MyNestedChildComponent barFoo="bar">
+          <span className="test-class">Label</span>
+        </MyNestedChildComponent>
+      </MyChildComponent>
     </MyComponent>
   );
 };

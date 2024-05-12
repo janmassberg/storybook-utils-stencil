@@ -1,58 +1,61 @@
 import { Meta, Source } from "@storybook/blocks";
 import {
+    generatorIntegrationArgs,
+    generatorIntegrationSourceArgs,
+} from "./generator.templates";
+import {
     generateSourceCodeHtml,
     generateSourceCodeJavascript,
 } from "../../src";
-import { testArgsButton } from "../../src/test-utils/testArgs";
 
 export const usageExample = `
 import {
     generateSourceCodeHtml,
     generateSourceCodeJavascript,
 } from "@jmassberg/storybook-utils";\n
-const args = {
-    required: true,
-    variant: "primary",
-    onClick: (event) => {
-        // Handle click event
-        console.log(event.target);
-    },
-    _slot: "Label",
-};\n
-const htmlCode = generateSourceCodeHtml("ui-button", args);
-const jsCode = generateSourceCodeJavascript("ui-button", args);
+const htmlCode = generateSourceCodeHtml("ui-button", ${generatorIntegrationSourceArgs}});\n
+const jsCode = generateSourceCodeJavascript("ui-button", ${generatorIntegrationSourceArgs}});\n
 `;
 
 <Meta title="Code Generators/HTML" />
 
 # HTML Source Code Generator
 
-## Usage
-
--   Use `generateSourceCodeHtml` to generate the HTML source
--   Use `generateSourceCodeJavascript` to generate the JS script source
-
-<Source code={usageExample} />
-
-## Output
-
-#### HTML
+## HTML
 
 Use `generateSourceCodeHtml` to generate the HTML source.
+
+<Source
+    code={`
+import { generateSourceCodeHtml } from "@jmassberg/storybook-utils";\n
+const htmlSource = generateSourceCodeHtml(${generatorIntegrationSourceArgs});
+`}
+/>
+
+### Output
 
 <Source
     dark
     language="html"
     type="code"
-    code={generateSourceCodeHtml("ui-button", testArgsButton)}
+    code={generateSourceCodeHtml(generatorIntegrationArgs)}
 />
 
-#### Javascript
+## Javascript
 
 Use `generateSourceCodeJavascript` to generate the JS script source.
 
 <Source
+    code={`
+import { generateSourceCodeJavascript } from "@jmassberg/storybook-utils";\n
+const jsSource = generateSourceCodeJavascript(${generatorIntegrationSourceArgs});
+`}
+/>
+
+### Output
+
+<Source
     dark
     language="html"
-    code={generateSourceCodeJavascript("ui-button", testArgsButton)}
+    code={generateSourceCodeJavascript(generatorIntegrationArgs)}
 />

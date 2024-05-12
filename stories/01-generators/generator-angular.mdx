@@ -1,55 +1,52 @@
 import { Meta, Source } from "@storybook/blocks";
 import {
-    generateSourceCodeAngularComponent,
-    generateSourceCodeAngularHtml,
-} from "../../src";
-import { testArgsButton } from "../../src/test-utils/testArgs";
-
-export const usageExample = `
+    generatorIntegrationArgs,
+    generatorIntegrationSourceArgs,
+} from "./generator.templates";
 import {
     generateSourceCodeAngularComponent,
     generateSourceCodeAngularHtml,
-} from "@jmassberg/storybook-utils";\n
-const args = {
-    required: true,
-    variant: "primary",
-    onClick: (event) => {
-        // Handle click event
-        console.log(event.target);
-    },
-    _slot: "Label",
-};\n
-const angularHtmlCode = generateSourceCodeAngularHtml("ui-button", args);
-const angularComponentCode = generateSourceCodeAngularComponent("ui-button", args);
-`;
+} from "../../src";
 
 <Meta title="Code Generators/Angular" />
 
 # Angular Source Code Generator
 
-## Usage
-
-<Source code={usageExample} />
-
-## Output
-
-#### Angular Template
+## Angular Template
 
 Use `generateSourceCodeAngularHtml` to generate the Angular template source.
+
+<Source
+    code={`
+import { generateSourceCodeAngularHtml } from "@jmassberg/storybook-utils";\n
+const angularHtmlSource = generateSourceCodeAngularHtml(${generatorIntegrationSourceArgs});
+`}
+/>
+
+### Output
 
 <Source
     dark
     language="html"
     type="code"
-    code={generateSourceCodeAngularHtml("ui-button", testArgsButton)}
+    code={generateSourceCodeAngularHtml(generatorIntegrationArgs)}
 />
 
-#### Angular Component
+## Angular Component
 
 Use `generateSourceCodeAngularComponent` to generate the Angualar component source.
 
 <Source
+    code={`
+import { generateSourceCodeAngularComponent } from "@jmassberg/storybook-utils";\n
+const angularComponentSource = generateSourceCodeAngularComponent(${generatorIntegrationSourceArgs});
+`}
+/>
+
+### Output
+
+<Source
     dark
     language="typescript"
-    code={generateSourceCodeAngularComponent("ui-button", testArgsButton)}
+    code={generateSourceCodeAngularComponent(generatorIntegrationArgs)}
 />

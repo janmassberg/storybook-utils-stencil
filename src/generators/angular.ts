@@ -1,3 +1,4 @@
+import type { CodeGeneratorArgs } from "./types";
 import {
     ArgEntries,
     filterEventHandlers,
@@ -17,14 +18,14 @@ const transformAngularAttributes = (attributes: ArgEntries) => {
     });
 };
 
-export const generateSourceCodeAngularHtml = (
-    component: string,
-    args: any
-): string => {
+export const generateSourceCodeAngularHtml = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const attribs = filterHtmlAttributes(args);
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
-    const slot = args._slot || "";
+    const slot = args?._slot || "";
 
     const angularAttributes = transformAngularAttributes(attribs);
     const angularProps = props.map(([key]) => `[${key}]="${key}"\n`);
@@ -39,10 +40,10 @@ export const generateSourceCodeAngularHtml = (
     return formatHtml(angularComponentSource);
 };
 
-export const generateSourceCodeAngularComponent = (
-    component: string,
-    args: any
-) => {
+export const generateSourceCodeAngularComponent = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const props = filterJsxProperties(args);
     const events = filterEventHandlers(args);
     const angularProps = props.map(([key, value]) => {

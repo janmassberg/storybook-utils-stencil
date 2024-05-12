@@ -2,26 +2,22 @@ import {
     generateSourceCodeAngularComponent,
     generateSourceCodeAngularHtml,
 } from "./angular";
-import { testArgs } from "../test-utils/testArgs";
-
-const testSlot = `
-<my-child-component foo-bar="foo">
-<my-nested-child-component bar-foo="bar">
-<span class="test-class">Test children</span></my-nested-child-component>
-</my-child-component>
-`;
+import { testArgsComponentGenerator, testCopmonentSlot } from "../test-utils/testArgs";
 
 describe("generateSourceCodeAngularComponent", () => {
     it("should generate valid formatted angular component source code", () => {
         expect(
-            generateSourceCodeAngularComponent("my-component", testArgs)
+            generateSourceCodeAngularComponent(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted angular component source code with children", () => {
         expect(
-            generateSourceCodeAngularComponent("my-component", {
-                _slot: testSlot,
+            generateSourceCodeAngularComponent({
+                ...testArgsComponentGenerator,
+                args: {
+                    _slot: testCopmonentSlot,
+                }
             })
         ).toMatchSnapshot();
     });
@@ -30,14 +26,17 @@ describe("generateSourceCodeAngularComponent", () => {
 describe("generateSourceCodeAngularHtml", () => {
     it("should generate valid formatted angular html template source code", () => {
         expect(
-            generateSourceCodeAngularHtml("my-component", testArgs)
+            generateSourceCodeAngularHtml(testArgsComponentGenerator)
         ).toMatchSnapshot();
     });
 
     it("should generate valid formatted angular html template source code with children", () => {
         expect(
-            generateSourceCodeAngularHtml("my-component", {
-                _slot: testSlot,
+            generateSourceCodeAngularHtml({
+                ...testArgsComponentGenerator,
+                args: {
+                    _slot: testCopmonentSlot,
+                }
             })
         ).toMatchSnapshot();
     });

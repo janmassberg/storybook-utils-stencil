@@ -1,51 +1,51 @@
 import { Meta, Source } from "@storybook/blocks";
 import {
+    generatorIntegrationArgs,
+    generatorIntegrationSourceArgs,
+} from "./generator.templates";
+import {
     generateSourceCodeReact,
     generateSourceCodeReactComponent,
 } from "../../src";
-import { testArgs, testArgsButton } from "../../src/test-utils/testArgs";
-
-export const usageExample = `
-import { generateSourceCodeReact } from "@jmassberg/storybook-utils";\n
-const reactCode = generateSourceCodeReact("ui-button", {
-    required: true,
-    variant: "primary",
-    onClick: (event) => {
-        // Handle click event
-        console.log(event.target);
-    },
-    _slot: "Label",
-});
-`;
 
 <Meta title="Code Generators/React" />
 
 # React Source Code Generator
 
-## Usage
-
-Use `generateSourceCodeReact` to generate an integration example for React.
-
-<Source code={usageExample} />
-
-## Output
-
-#### React JSX
+## React JSX
 
 Use `generateSourceCodeReact` to generate the React component JSX source.
 
 <Source
-    dark
-    language="jsx"
-    code={generateSourceCodeReact("ui-button", testArgsButton)}
+    code={`
+import { generateSourceCodeReact } from "@jmassberg/storybook-utils";\n
+const reactJsxSource = generateSourceCodeReact(${generatorIntegrationSourceArgs});
+`}
 />
 
-#### React Component
-
-Use `generateSourceCodeReactComponent` to generate an example React component integration source.
+### Output
 
 <Source
     dark
     language="jsx"
-    code={generateSourceCodeReactComponent("my-component", testArgs)}
+    code={generateSourceCodeReact(generatorIntegrationArgs)}
+/>
+
+## React Function Component
+
+Use `generateSourceCodeReactComponent` to generate an example React component integration source.
+
+<Source
+    code={`
+import { generateSourceCodeReactComponent } from "@jmassberg/storybook-utils";\n
+const reactFCSource = generateSourceCodeReactComponent(${generatorIntegrationSourceArgs});
+`}
+/>
+
+### Output
+
+<Source
+    dark
+    language="jsx"
+    code={generateSourceCodeReactComponent(generatorIntegrationArgs)}
 />

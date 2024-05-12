@@ -1,3 +1,4 @@
+import type { CodeGeneratorArgs } from "./types";
 import {
     ArgEntries,
     filterHtmlAttributes,
@@ -18,12 +19,12 @@ const generateHtmlAttributes = (attributes: ArgEntries): string => {
         .join(" ");
 };
 
-export const generateSourceCodeHtml = (
-    component: string,
-    args: any
-): string => {
+export const generateSourceCodeHtml = ({
+    component,
+    args,
+}: CodeGeneratorArgs): string => {
     const htmlAttributes = generateHtmlAttributes(filterHtmlAttributes(args));
-    const children = args._slot || "";
+    const children = args?._slot || "";
     return formatHtml(
         `<${component} ${htmlAttributes}>${children}</${component}>`
     );
