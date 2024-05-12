@@ -39,7 +39,7 @@ export const LightTheme = {
     parameters: {
         docs: {
             description: {
-                story: "Lorem ipsum",
+                story: "",
             },
         },
     },
