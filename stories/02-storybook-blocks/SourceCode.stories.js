@@ -5,7 +5,7 @@ import {
     generateSourceHtmlMarkup,
     SourceCode,
 } from "../../src";
-import { testArgs } from "../../src/test-utils/testArgs";
+import { testArgsComponentGenerator } from "../../src/test-utils/testArgs";
 
 export default {
     title: "Storybook Blocks/SourceCode",
@@ -25,7 +25,7 @@ export default {
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceHtmlMarkup("my-component", testArgs),
+                    code: generateSourceHtmlMarkup(testArgsComponentGenerator),
                 },
             ],
         },
@@ -46,11 +46,11 @@ export const MultipleBlock = {
             HTML: [
                 {
                     language: "html",
-                    code: generateSourceHtmlMarkup("my-component", testArgs),
+                    code: generateSourceHtmlMarkup(testArgsComponentGenerator),
                 },
                 {
                     language: "html",
-                    code: generateSourceHtmlScript("my-component", testArgs),
+                    code: generateSourceHtmlScript(testArgsComponentGenerator),
                 },
             ],
         },
