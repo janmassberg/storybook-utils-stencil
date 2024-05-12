@@ -6,4 +6,4 @@ exports[`objectToString should convert functions to strings 1`] = `
         }"
 `;
 
-exports[`objectToString should convert objects to strings 1`] = `"{testString: \\"test string\\", testNumber: 1234, testTrue: true, testFalse: false}"`;
+exports[`objectToString should convert objects to strings 1`] = `"{testString: "test string", testNumber: 1234, testTrue: true, testFalse: false}"`;

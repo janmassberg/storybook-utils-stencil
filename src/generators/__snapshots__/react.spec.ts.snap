@@ -1,47 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateSourceCodeReact should generate valid formatted react JSX code with children 1`] = `
-"const MyComponentExample = () => {
-  return (
-    <MyComponent>
-      <MyChildComponent fooBar=\\"foo\\">
-        <MyNestedChildComponent barFoo=\\"bar\\">
-          <span className=\\"test-class\\">Test children</span>
-        </MyNestedChildComponent>
-      </MyChildComponent>
-    </MyComponent>
-  );
-};
-"
+"<MyComponent>
+  <MyChildComponent fooBar="foo">
+    <MyNestedChildComponent barFoo="bar">
+      <span className="test-class">Test children</span>
+    </MyNestedChildComponent>
+  </MyChildComponent>
+</MyComponent>"
 `;
 
 exports[`generateSourceCodeReact should generate valid formatted react JSX code with props 1`] = `
-"const MyComponentExample = () => {
-  const testArray = [1, 2, 3];
-
-  const testObject = { foo: \\"bar\\" };
-
-  const testFunction = function () {
+"<MyComponent
+  testTrue
+  testString="test-string"
+  testNumber={12345}
+  testArray={[1, 2, 3]}
+  testObject={{ foo: "bar" }}
+  testFunction={() => {
     // do nothing
-  };
-
-  const onOnTestEvent = (event: Event) => {
+  }}
+  onTestEvent={(event) => {
+    // Handle event
     console.log(event.type);
-  };
-
-  return (
-    <MyComponent
-      testTrue
-      testString=\\"test-string\\"
-      testNumber={12345}
-      testArray={testArray}
-      testObject={testObject}
-      testFunction={testFunction}
-      onOnTestEvent={onOnTestEvent}
-    >
-      Test children
-    </MyComponent>
-  );
-};
-"
+  }}
+>
+  Test children
+</MyComponent>"
 `;

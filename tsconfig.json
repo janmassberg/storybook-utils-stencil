@@ -16,6 +16,8 @@
     "emitDecoratorMetadata": true,
     "declarationDir": null,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "outDir": "dist",
     "typeRoots": ["node_modules/@types"],
     "allowUnreachableCode": false,

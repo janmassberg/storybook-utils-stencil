@@ -1,22 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateSourceCodeAngularComponent should generate valid formatted angular component source code 1`] = `
-"import { Component } from \\"@angular/core\\";
+"import { Component } from "@angular/core";
 
 @Component({
-  selector: \\"app-my-component-example\\",
-  templateUrl: \\"./my-component-example.component.html\\",
+  selector: "app-my-component-example",
+  templateUrl: "./my-component-example.component.html",
 })
 export class MyComponentExampleComponent {
   public testArray = [1, 2, 3];
 
-  public testObject = { foo: \\"bar\\" };
+  public testObject = { foo: "bar" };
 
-  public testFunction = function () {
+  public testFunction = () => {
     // do nothing
   };
 
-  onOnTestEvent(event: Event) {
+  onTestEvent(event: Event) {
+    // Handle event
     console.log(event.type);
   }
 }
@@ -24,11 +25,11 @@ export class MyComponentExampleComponent {
 `;
 
 exports[`generateSourceCodeAngularComponent should generate valid formatted angular component source code with children 1`] = `
-"import { Component } from \\"@angular/core\\";
+"import { Component } from "@angular/core";
 
 @Component({
-  selector: \\"app-my-component-example\\",
-  templateUrl: \\"./my-component-example.component.html\\",
+  selector: "app-my-component-example",
+  templateUrl: "./my-component-example.component.html",
 })
 export class MyComponentExampleComponent {}
 "
@@ -36,14 +37,14 @@ export class MyComponentExampleComponent {}
 
 exports[`generateSourceCodeAngularHtml should generate valid formatted angular html template source code 1`] = `
 "<my-component
-  test-false=\\"false\\"
-  test-true=\\"true\\"
-  test-string=\\"test-string\\"
-  test-number=\\"12345\\"
-  [testArray]=\\"testArray\\"
-  [testObject]=\\"testObject\\"
-  [testFunction]=\\"testFunction\\"
-  (onTestEvent)=\\"onOnTestEvent($event)\\"
+  test-false="false"
+  test-true="true"
+  test-string="test-string"
+  test-number="12345"
+  [testArray]="testArray"
+  [testObject]="testObject"
+  [testFunction]="testFunction"
+  (testEvent)="onTestEvent($event)"
 >
   Test children
 </my-component>
@@ -52,9 +53,9 @@ exports[`generateSourceCodeAngularHtml should generate valid formatted angular h
 
 exports[`generateSourceCodeAngularHtml should generate valid formatted angular html template source code with children 1`] = `
 "<my-component>
-  <my-child-component foo-bar=\\"foo\\">
-    <my-nested-child-component bar-foo=\\"bar\\">
-      <span class=\\"test-class\\">Test children</span>
+  <my-child-component foo-bar="foo">
+    <my-nested-child-component bar-foo="bar">
+      <span class="test-class">Test children</span>
     </my-nested-child-component>
   </my-child-component>
 </my-component>

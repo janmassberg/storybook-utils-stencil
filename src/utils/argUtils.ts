@@ -85,7 +85,9 @@ export const filterJsxProperties: ArgsFilter = (args: any): ArgEntries => {
  * @param args {ArgEntries}
  */
 export const filterEventHandlers: ArgsFilter = (args: any): ArgEntries => {
-    return Object.entries(args).filter(isEventArg).map(([key, value]) => [getEventNameFromHandler(key), value]);
+    return Object.entries(args)
+        .filter(isEventArg)
+        .map(([key, value]) => [getEventNameFromHandler(key), value]);
 };
 
 export const getEventNameFromHandler = (handlerName: string): string => {

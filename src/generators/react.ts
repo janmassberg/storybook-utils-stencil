@@ -87,7 +87,7 @@ export const generateSourceCodeReact = (
         ${reactEvents.join(" ")}
         >${transformChildComponents(slot)}</${reactComponentName}>`;
     return formatJsx(reactComponentJsx).replace(/;\s+?$/, "");
-}
+};
 
 export const generateSourceCodeReactComponent = (
     component: string,

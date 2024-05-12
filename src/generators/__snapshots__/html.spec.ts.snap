@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`generateSourceCodeHtml should build the HTML source for a component with args correctly 1`] = `
-"<my-component test-true test-string=\\"test-string\\" test-number=\\"12345\\">
+"<my-component test-true test-string="test-string" test-number="12345">
   Test children
 </my-component>
 "

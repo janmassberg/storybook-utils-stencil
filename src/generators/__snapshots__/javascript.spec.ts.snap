@@ -2,13 +2,14 @@
 
 exports[`generateSourceCodeJavascript should generate a script tag with prop injection and event handlers 1`] = `
 "<script>
-  const element = document.querySelector(\\"my-component\\");
+  const element = document.querySelector("my-component");
   element.testArray = [1, 2, 3];
-  element.testObject = { foo: \\"bar\\" };
-  element.testFunction = function () {
+  element.testObject = { foo: "bar" };
+  element.testFunction = () => {
     // do nothing
   };
-  element.addEventListener(\\"onTestEvent\\", function (event) {
+  element.addEventListener("testEvent", (event) => {
+    // Handle event
     console.log(event.type);
   });
 </script>

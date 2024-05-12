@@ -6,4 +6,4 @@ exports[`objectToStringJsx should convert functions correctly 1`] = `
         }}"
 `;
 
-exports[`objectToStringJsx should correctly convert objects to jsx 1`] = `"{{testString: \\"test string\\", testNumber: 1234, testTrue: true, testFalse: false}}"`;
+exports[`objectToStringJsx should correctly convert objects to jsx 1`] = `"{{testString: "test string", testNumber: 1234, testTrue: true, testFalse: false}}"`;
