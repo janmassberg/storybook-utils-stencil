@@ -32,7 +32,7 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
 exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with children 1`] = `
 "import * as React from "react";
 
-const MyComponentExample = () => {
+const MyComponentExample: React.FC = () => {
   return (
     <MyComponent>
       <MyChildComponent fooBar="foo">
@@ -49,8 +49,8 @@ const MyComponentExample = () => {
 exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with props 1`] = `
 "import * as React from "react";
 
-const MyComponentExample = () => {
-  const [testArray, setTestArray] = React.useState<number[]>([1, 2, 3]);
+const MyComponentExample: React.FC = () => {
+  const [testArray, setTestArray] = React.useState<Array<number>>([1, 2, 3]);
   const [testObject, setTestObject] = React.useState<Record<string, any>>({
     foo: "bar",
   });
