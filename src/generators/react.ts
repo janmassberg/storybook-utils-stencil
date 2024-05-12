@@ -136,7 +136,7 @@ export const generateSourceCodeReactComponent = (
             if (!["boolean", "number", "string"].includes(arrayType)) {
                 arrayType = "any";
             }
-            propType = `${arrayType}[]`;
+            propType = `Array<${arrayType}>`;
             return `const [${key}, set${ucFirst(
                 key
             )}] = React.useState<${propType}>(${objectToString(value)});`;
@@ -149,7 +149,7 @@ export const generateSourceCodeReactComponent = (
     const componentName = `${toUpperCamelCase(component)}Example`;
     const reactComponentSource = `
     import * as React from "react";\n
-    const ${componentName} = () => {
+    const ${componentName}: React.FC = () => {
         ${reactConstants.join("\n")}
         ${reactEventHandlers.join("\n\n")}
 

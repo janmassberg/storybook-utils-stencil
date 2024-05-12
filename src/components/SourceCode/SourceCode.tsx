@@ -46,6 +46,19 @@ const BadgeContainer = styled(Box)`
     z-index: 1;
 `;
 
+/**
+ * The `<SourceCode>` component can be used in a MDX story to group code snippets and provide a tab navigation to only show
+ * code that is relevant for the user.
+ *
+ * For each `codeBlocks` entry a tab is added to the tab navigation.
+ * The tabs are labelled with the key of the related entry.
+ *
+ * Set the `language` attribute on the code blocks to the language the code is written in.
+ * The language is used for code formatting and to display an info badge.
+ *
+ * By default, code is displayed on a `dark` background.
+ * Set `theme` to `light` if you prefer a light background for the code.
+ */
 export const SourceCode: FC<SourceCodeProps> = ({
     codeBlocks,
     theme = "dark",
