@@ -47,7 +47,7 @@ const BadgeContainer = styled(Box)`
 `;
 
 /**
- * The `<SourceCode>` component can be used in a MDX story to group code snippets and provide a tab navigation to only show
+ * The `<SourceCode>` component can be used in MDX stories to group code snippets and provide a tab navigation to only show
  * code that is relevant for the user.
  *
  * For each `codeBlocks` entry a tab is added to the tab navigation.

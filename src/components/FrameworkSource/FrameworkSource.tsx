@@ -18,7 +18,7 @@ export interface FrameworkSourceProps {
 }
 
 /**
- * The `<FrameworkSource>` component can be used in a MDX story to display integration source for all supported frameworks
+ * The `<FrameworkSource>` component can be used in MDX stories to display integration source for all supported frameworks
  * (HTML, Angular, React and Vue) in separate tabs.
  */
 export const FrameworkSource: FC<FrameworkSourceProps> = ({
