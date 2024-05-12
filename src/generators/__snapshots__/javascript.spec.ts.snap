@@ -6,7 +6,7 @@ exports[`generateSourceCodeJavascript should generate a script tag with prop inj
   element.testArray = [1, 2, 3];
   element.testObject = { foo: "bar" };
   element.testFunction = () => {
-    // do nothing
+    // Implementation
   };
   element.addEventListener("testEvent", (event) => {
     // Handle event

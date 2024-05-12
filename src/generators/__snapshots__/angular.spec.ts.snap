@@ -13,7 +13,7 @@ export class MyComponentExampleComponent {
   public testObject = { foo: "bar" };
 
   public testFunction = () => {
-    // do nothing
+    // Implementation
   };
 
   onTestEvent(event: Event) {

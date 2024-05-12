@@ -18,7 +18,7 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
   testArray={[1, 2, 3]}
   testObject={{ foo: "bar" }}
   testFunction={() => {
-    // do nothing
+    // Implementation
   }}
   onTestEvent={(event) => {
     // Handle event
@@ -27,4 +27,54 @@ exports[`generateSourceCodeReact should generate valid formatted react JSX code 
 >
   Test children
 </MyComponent>"
+`;
+
+exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with children 1`] = `
+"import * as React from "react";
+
+const MyComponentExample = () => {
+  return (
+    <MyComponent>
+      <MyChildComponent fooBar="foo">
+        <MyNestedChildComponent barFoo="bar">
+          <span className="test-class">Test children</span>
+        </MyNestedChildComponent>
+      </MyChildComponent>
+    </MyComponent>
+  );
+};
+"
+`;
+
+exports[`generateSourceCodeReactComponent should generate the source code for a basic integration with props 1`] = `
+"import * as React from "react";
+
+const MyComponentExample = () => {
+  const [testArray, setTestArray] = React.useState<number[]>([1, 2, 3]);
+  const [testObject, setTestObject] = React.useState<Record<string, any>>({
+    foo: "bar",
+  });
+  const testFunction = React.useCallback(() => {
+    // Implementation
+  }, []);
+  const onTestEvent = React.useCallback((event: Event) => {
+    // Handle event
+    console.log(event.type);
+  }, []);
+
+  return (
+    <MyComponent
+      testTrue
+      testString="test-string"
+      testNumber={12345}
+      testArray={testArray}
+      testObject={testObject}
+      testFunction={testFunction}
+      onTestEvent={onTestEvent}
+    >
+      Test children
+    </MyComponent>
+  );
+};
+"
 `;

@@ -40,7 +40,7 @@ exports[`generateSourceCodeVue should generate valid formatted vue JSX code with
         testArray: [1, 2, 3],
         testObject: { foo: "bar" },
         testFunction: () => {
-          // do nothing
+          // Implementation
         },
       };
     },

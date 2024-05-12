@@ -113,24 +113,44 @@ export const generateSourceCodeReactComponent = (
         >${transformChildComponents(slot)}</${reactComponentName}>`;
 
     const reactEventHandlers = events.map(
-        ([key, value]) => `const on${ucFirst(key)} = (event: Event) => {
+        ([key, value]) => `const on${ucFirst(
+            key
+        )} = React.useCallback((event: Event) => {
             ${value
                 .toString()
                 .replace(/^[^{]+{/, "")
                 .replace(/}$/, "")}
-        };`
+        }, []);`
     );
 
     const reactConstants = props.map(([key, value]) => {
-        return `const ${key} = ${objectToString(value)};`;
+        let propType: string;
+        if (typeof value === "function") {
+            return `const ${key} = React.useCallback(
+                ${objectToString(value)},
+                []
+            );`;
+        }
+        if (Array.isArray(value)) {
+            let arrayType: string = typeof value[0];
+            if (!["boolean", "number", "string"].includes(arrayType)) {
+                arrayType = "any";
+            }
+            propType = `${arrayType}[]`;
+            return `const [${key}, set${ucFirst(
+                key
+            )}] = React.useState<${propType}>(${objectToString(value)});`;
+        }
+        return `const [${key}, set${ucFirst(
+            key
+        )}] = React.useState<Record<string, any>>(${objectToString(value)});`;
     });
 
     const componentName = `${toUpperCamelCase(component)}Example`;
     const reactComponentSource = `
+    import * as React from "react";\n
     const ${componentName} = () => {
-
-        ${reactConstants.join("\n\n")}
-
+        ${reactConstants.join("\n")}
         ${reactEventHandlers.join("\n\n")}
 
         return (

@@ -10,7 +10,7 @@ export const testArgs = {
         foo: "bar",
     },
     testFunction: (): void => {
-        // do nothing
+        // Implementation
     },
     onTestEvent: (event: Event): void => {
         // Handle event
