@@ -2,5 +2,5 @@ import { create } from "@storybook/theming/create";
 
 export default create({
     base: "light",
-    brandTitle: "@jmassberg/storybook-utils",
+    brandTitle: "@jmassberg/storybook-web-components",
 });

@@ -1,7 +1,14 @@
 {
-  "name": "@jmassberg/storybook-utils",
+  "name": "@jmassberg/storybook-web-components",
   "version": "0.1.0",
   "description": "Utilities, code generators and components for storybook based library documentation",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janmassberg/storybook-web-components.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/types/index.d.ts",
@@ -12,10 +19,6 @@
     "index.js",
     "index.d.ts"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/janmassberg/storybook-utils-stencil.git"
-  },
   "scripts": {
     "start": "npm run storybook",
     "clean": "rm -rf dist out coverage",

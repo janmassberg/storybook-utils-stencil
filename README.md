@@ -1,8 +1,8 @@
 [![Node version](https://img.shields.io/node/v/npm.svg?style=flat)](https://nodejs.org/download/)
 
-# Storybook Utils
+# Storybook + Web Components
 
-**Utilities, code generators and components for Storybook-based library documentation**
+**Utilities, code generators and components for Storybook-based library documentation of web-components.**
 
 This library is designed for use in projects that use Storybook for documentation.
 
@@ -16,7 +16,7 @@ The provided components depend on modules that are typically installed with Stor
 ## Installation
 
 ```shell
-npm i -D @jmassberg/storybook-utils
+npm i -D @jmassberg/storybook-web-components
 ```
 
 ## Source Code Generators
@@ -49,7 +49,7 @@ interface CodeGeneratorArgs {
 #### Generate React JSX Source Code
 
 ```jsx
-import { generateSourceReactJsx } from "@jmassberg/storybook-utils";
+import { generateSourceReactJsx } from "@jmassberg/storybook-web-components";
 
 const reactJsx = generateSourceReactJsx({
     component: "my-component",
@@ -77,7 +77,7 @@ The `<FrameworkSource>` component can be used in MDX stories to display integrat
 (HTML, Angular, React and Vue) in separate tabs.
 
 ```jsx
-import { FrameworkSource } from "@jmassberg/storybook-utils";
+import { FrameworkSource } from "@jmassberg/storybook-web-components";
 
 <FrameworkSource
     theme="dark"
@@ -99,7 +99,7 @@ The `<SourceCode>` component can be used in MDX stories to group code snippets a
 code that is relevant for the user.
 
 ```jsx
-import { SourceCode } from "@jmassberg/storybook-utils";
+import { SourceCode } from "@jmassberg/storybook-web-components";
 
 <SourceCode
     theme="dark"
